@@ -40,7 +40,10 @@ const routes: Routes = [
     path: 'audiolecteur',
     loadChildren: () => import('./audiolecteur/audiolecteur.module').then( m => m.AudiolecteurPageModule)
   },
- 
+  {
+    path: 'menu',
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
+  },
 ];
 
 @NgModule({

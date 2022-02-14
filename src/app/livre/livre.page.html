@@ -1,6 +1,12 @@
 <!-- home.page.html -->
   <ion-toolbar color="primary">
-    <ion-title> {{format}} </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center"> {{format}} </ion-title>
+    <ion-buttons slot="end" style="margin-right:5%;">
+      <ion-icon name="search" ></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 
 <ion-content [fullscreen]="true" scrollbar-y-none style="background-color: white;">
@@ -22,9 +28,9 @@
       <ion-col size="12">
 
         <ion-slides pager="false" [options]="slideOptsThree" #slideWithNav3
-          (ionSlideDidChange)="SlideDidChange(sliderThree,slideWithNav3)">
+          (ionSlideDidChange)="slideDidChange(sliderThree,slideWithNav3)">
           <ion-slide *ngFor="let livre of listLivre">
-            <div *ngIf="livre.domaine=='science'" (click)="showAlert(livre.idLivre)">
+            <div *ngIf="livre.domaine==='Science'" (click)="showLivre(livre.idLivre)">
             <div style="border: solid 2px; border-radius:6px;">
               <img src="../../assets/Images/livre1.jpg" style="height: 100px;">
             {{livre.titre}}
@@ -52,7 +58,7 @@
       <ion-col size="12">
 
         <ion-slides pager="false" [options]="slideOptsThree" #slideWithNav3
-          (ionSlideDidChange)="SlideDidChange(sliderThree,slideWithNav3)">
+          (ionSlideDidChange)="slideDidChange(sliderThree,slideWithNav3)">
           <ion-slide *ngFor="let livre of listLivre">
             <div style="border: solid 2px; border-radius:6px;">
               <img src="../../assets/Images/livre1.jpg" style="height: 100px;">
@@ -77,7 +83,7 @@
       <ion-col size="12">
 
         <ion-slides pager="false" [options]="slideOptsThree" #slideWithNav3
-          (ionSlideDidChange)="SlideDidChange(sliderThree,slideWithNav3)">
+          (ionSlideDidChange)="slideDidChange(sliderThree,slideWithNav3)">
           <ion-slide *ngFor="let livre of listLivre">
             <div style="border: solid 2px; border-radius:6px;">
               <img src="../../assets/Images/livre1.jpg" style="height: 100px;">

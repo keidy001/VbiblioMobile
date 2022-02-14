@@ -19,8 +19,8 @@ export class LivrePage implements OnInit {
   sliderThree: any;
 
   listLivre: any;
-  format:any;
-  detail:any;
+  format: any;
+  detail: any;
 //slider config
   slideOptsOne = {
     initialSlide: 0,
@@ -32,7 +32,7 @@ export class LivrePage implements OnInit {
     slidesPerView: 2,
     loop: true,
     centeredSlides: true,
-  
+
   };
   slideOptsThree = {
     initialSlide: 0,
@@ -43,10 +43,10 @@ export class LivrePage implements OnInit {
 
 
   constructor(
-    private service:ServiceService,
-    private route:ActivatedRoute,
+    private service: ServiceService,
+    private route: ActivatedRoute,
     public alert: AlertController,
-    private router:Router
+    private router: Router
 
   ) {
     this.sliderOne =
@@ -117,7 +117,7 @@ export class LivrePage implements OnInit {
         }
       ]
     };
-  
+
   }
   //Move to Next slide
   slideNext(object, slideView) {
@@ -134,11 +134,11 @@ export class LivrePage implements OnInit {
   }
 
   //Method called when slide is changed by drag or navigation
-  SlideDidChange(object, slideView) {
+  slideDidChange(object, slideView) {
     this.checkIfNavDisabled(object, slideView);
   }
 
-  //Call methods to check if slide is first or last to enable disbale navigation  
+  //Call methods to check if slide is first or last to enable disbale navigation
   checkIfNavDisabled(object, slideView) {
     this.checkisBeginning(object, slideView);
     this.checkisEnd(object, slideView);
@@ -153,7 +153,7 @@ export class LivrePage implements OnInit {
     slideView.isEnd().then((istrue) => {
       object.isEndSlide = istrue;
     });
-    
+
   }
 
 
@@ -164,56 +164,52 @@ export class LivrePage implements OnInit {
 
 
   ngOnInit() {
-    this.livrebyformat( this.route.snapshot.params['format'])
-    this.format = this.route.snapshot.params['format']
-    console.log("ok"+this.format);
+    this.livrebyformat( this.route.snapshot.params.format);
+    this.format = this.route.snapshot.params.format;
+    console.log('ok'+this.format);
 
-    
   }
 
 
 
-  livrebyformat(format:String){
-    
+  livrebyformat(format: string){
+
     this.service.listLivre(format).subscribe((data)=>{
       this.listLivre = data;
-      console.log("content"+ this.listLivre);
-    })
+      console.log('content'+ this.listLivre);
+    });
   }
 
-  
-
-    async showAlert(id:number) {
+    async showLivre(id: number) {
       this.service.livreById(id).subscribe((data)=>{
         this.detail = data;
-       
-      })
+
+      });
 
       const alert = await this.alert.create({
-        
+
         cssClass: 'my-custom-class',
-        message: '<img src="../../assets/Images/livre1.jpg" style="width:210px;height:200px;">'+this.detail.titre,  
-        buttons: [ 
+        message: '<img src="../../assets/Images/livre1.jpg" style="width:210px;height:200px;">'+this.detail.titre,
+        buttons: [
           {
             text: 'Lire',
             role: 'cancel',
             cssClass: 'secondary',
             id: 'show-button',
             handler: (blah) => {
-              this.router.navigateByUrl("/home/"+this.detail.idLivre)
+              this.router.navigateByUrl('/home/'+this.detail.idLivre);
             }
           }, {
             text: 'Detail',
             id: 'detail-button',
             handler: () => {
-              this.router.navigateByUrl("/pdfviewer")
+              this.router.navigateByUrl('/pdfviewer');
             }
           }
         ]
       });
-  
       await alert.present();
-      
+
     }
 
 }

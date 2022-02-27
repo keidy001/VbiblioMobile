@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modifier Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<ion-input type="text" [(ngModel)]="userData.nom" >Nom :</ion-input>
+<ion-input type="text" [(ngModel)]="userData.prenom" >Prénom :</ion-input>
+<ion-input type="email" [(ngModel)]="userData.email" >Email :</ion-input>
+<ion-input type="text" [(ngModel)]="userData.telephone" >Télephone :</ion-input>
+<ion-input type="text" [(ngModel)]="userData.login" >Pseudo :</ion-input>
+<ion-button type="submit" (click)="update()">Valider</ion-button>
+<ion-button class="ion-button">Annuler</ion-button>
+
+</ion-content>

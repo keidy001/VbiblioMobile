@@ -4,6 +4,22 @@ ion-title{
 ion-content{
   --background: white;
 }
+
+.shadow-native {
+  
+  height: var(--height);
+  transition: var(--transition);
+  border-width: var(--border-width);
+  border-style: var(--border-style);
+  border-color: var(--border-color);
+  background: var(--background);
+  box-shadow: var(--box-shadow);
+  opacity: var(--opacity);
+  
+  line-height: 1;
+  cursor: pointer;
+  
+}
 // Slider Style START 
 .custon-nav{
   height: 48px;
@@ -40,20 +56,4 @@ ion-content{
   position: absolute;
   color: white;
   bottom: 30px;
-}
-ion-searchbar {
-  --icon-color: var(--ion-color-primary);
-  width: 60%;
-  height: 4%;
-  --background: white;
-  --border-radius: 50px;
-  color: black;
-display: inline-block;
-font-size: 30px;
-  box-shadow:30px;;
-}
- ion-searchbar ion-icon {
-  right: 16px !important;
-  left: auto !important;
-
 }

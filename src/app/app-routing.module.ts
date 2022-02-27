@@ -44,6 +44,32 @@ const routes: Routes = [
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
+  {
+    path: 'documents',
+    loadChildren: () => import('./documents/documents.module').then( m => m.DocumentsPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'ebookvue',
+    loadChildren: () => import('./ebookvue/ebookvue.module').then( m => m.EbookvuePageModule)
+  },
+  {
+    path: 'detail-livre/:idLivre',
+    loadChildren: () => import('./detail-livre/detail-livre.module').then( m => m.DetailLivrePageModule)
+  },
+  {
+    path: 'detail',
+    loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
+  },  {
+    path: 'edit-profile',
+    loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
+  },
+
+
+
 ];
 
 @NgModule({

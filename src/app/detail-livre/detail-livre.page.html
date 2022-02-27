@@ -1,0 +1,29 @@
+
+<div style="margin: 5%;">
+
+  <img src="{{photo}}{{livre?.idLivre}}"
+  style="width: 30%; height: 50%;  display:inline-flex;   margin-top: 5px; margin-bottom: 0%;">
+    <span style="margin-left: 5%; position: absolute; margin-top: 15%; color: #000; font-weight: 400; font-size: 14px; "><b>{{livre?.titre}}</b></span>
+    <span style="margin-left: 5%; position: absolute; margin-top: 25%; color: #000; font-weight: 400; font-size: 14px; "><b>Format :</b> {{livre?.format}}</span>
+    <span style="margin-left: 5%; position: absolute; margin-top: 35%; color: #000; font-weight: 400; font-size: 14px; ">
+
+    <span *ngIf="livre?.note >=1" >
+      <ion-icon name="star" class="rateIcon" ></ion-icon>
+    </span>
+    <span *ngIf="livre?.note >=2">
+      <ion-icon name="star" class="rateIcon"  ></ion-icon>
+    </span>
+    <span *ngIf="livre?.note >=3">
+      <ion-icon name="star" class="rateIcon" ></ion-icon>
+    </span>
+    <span *ngIf="livre?.note >=4">
+      <ion-icon name="star" class="rateIcon" ></ion-icon>
+    </span>
+    <span *ngIf="livre?.note >=5">
+      <ion-icon name="star" class="rateIcon" ></ion-icon>
+    </span>
+    </span>
+    <h6 style="text-align: left; margin-top: 2px; color: #000; font-weight: 400; font-size: 14px; "><b>Description :</b></h6>
+    <p> {{livre?.description}}</p>
+  </div>
+    

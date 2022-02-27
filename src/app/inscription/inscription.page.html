@@ -1,41 +1,48 @@
 <ion-header>
- 
+
 </ion-header>
 
 <ion-content>
 
-  
-  
-    <form action=""class="form" >
-      <ion-list  class="list">
-        <div class="inputDiv">
-          <ion-label class="label">Nom : </ion-label>
-          <input class="input" name="nom" type="text" [(ngModel)]="nom">
-        </div>
-        <div class="inputDiv">
-          <ion-label class="label">Prenom : </ion-label>
-          <input name="prenom"  type="text" [(ngModel)]="prenom"  class="input">
-        </div>
-        <div class="inputDiv">
-          <ion-label class="label">Email :</ion-label>
-          <input name="email" type="email" [(ngModel)]="email"  class="input">
-        </div>
-        <div class="inputDiv">
-          <ion-label class="label">Identifiant : </ion-label>
-          <input name="identifiant" type="text" [(ngModel)]="identifiant" class="input">
-        </div>
-        <div class="inputDiv">
-          <ion-label class="label">Mot de passe : </ion-label>
-          <input name="password" type="password" [(ngModel)]="password" class="input">
-        </div>
-        <div class="inputDiv">
-          <ion-label class="label">Confirmer : </ion-label>
-          <input name="confirmPassword" type="password" [(ngModel)]="confirmPassword" class="input">
-        </div>
-        <div class="inputDiv"><br>
-      <ion-button  expand="block" (click)="inscription()" shape="round">S'inscrire</ion-button>
-      </div>
-      </ion-list>
-    </form>
-        
+  <div>
+    <img src="../../assets/Images/back.png">
+  </div>
+
+  <form [formGroup]="ionicForm" (ngSubmit)="inscription()" novalidate>
+
+      <ion-item>
+        <ion-input class="input"  type="text" formControlName="nom" placeholder="Votre nom" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.nom.errors?.required">
+        Ce champ est obligatoire.
+      </span>
+      <ion-item>
+        <ion-input  type="email" formControlName="email" placeholder=" Email" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+        Ce champ est obligatoire.
+      </span>
+      <ion-item>
+        <ion-input type="text" formControlName="login" placeholder="Nom d'utilisateur" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.login.errors?.required">
+        Ce champ est obligatoire.
+      </span>
+      <ion-item> 
+        <ion-input  type="password" formControlName="password" placeholder="Mot de passe" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required"  >
+        Ce champ est obligatoire.
+      </span>
+      <ion-item>
+        <ion-input  type="password" formControlName="confirmPassword" placeholder="Confirmer le mot de passe" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.confirmPassword.errors?.required">
+        Ce champ est obligatoire.
+      </span>
+      <br>
+      <ion-button expand="block" type="submit" shape="round">S'inscrire</ion-button>
+
+  </form>
+
 </ion-content>

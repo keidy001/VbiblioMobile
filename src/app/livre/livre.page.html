@@ -1,102 +1,52 @@
+
+
+
+
 <!-- home.page.html -->
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button menu="main-menu"></ion-menu-button>
-    </ion-buttons>
-    <ion-title class="ion-text-center"> {{format}} </ion-title>
-    <ion-buttons slot="end" style="margin-right:5%;">
-      <ion-icon name="search" ></ion-icon>
-    </ion-buttons>
-  </ion-toolbar>
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-menu-button menu="main-menu"></ion-menu-button>
+  </ion-buttons>
+  <ion-title class="ion-text-center">Livre {{format}} </ion-title>
+  <ion-buttons slot="end" style="margin-right:5%;" routerLink="/profile">
+    <ion-icon slot="icon-only" name="person-circle" ></ion-icon>
+  </ion-buttons>
+</ion-toolbar>
 
 <ion-content [fullscreen]="true" scrollbar-y-none style="background-color: white;">
-  <img src="../../assets/Images/ebook.jpg" style="position: fixed; z-index: 2; height: 180px; width: 96%; margin: 2% 0% 0% 2% ; ">
-  <div style="z-index: 4;"><p>exemple de texte</p></div>
 
-  <div style="background-color: white;margin-top: 120px;">.
-<div style="z-index: 2; position: fixed;background-color: white; width: 100%;">
-  <h5 style="color: #4481FF; margin-left: 5px;  "> > {{format}}</h5>
-</div>
+  <ion-searchbar></ion-searchbar>
+
+<!-- <ion-list-header style="position: fixed;">
+  <ion-label>{{format}}</ion-label>
+</ion-list-header> -->
+
+<ion-item  *ngFor="let livre of listLivre"  style="padding: 2%" (click)="detailLivre(livre.idLivre)" > 
+  <img src="{{photo}}{{livre.idLivre}}" style="width: 30%;padding: 2%;">
+  <ion-label style="margin-left: 3%;">
+     {{livre.titre}}<br/>
+     <span style="font-size: small;">Durée : {{livre.format}} </span> 
+      <br>
+      <span *ngIf="livre?.note >=1" >
+        <ion-icon name="star" class="rateIcon" ></ion-icon>
+      </span>
+      <span *ngIf="livre?.note >=2">
+        <ion-icon name="star" class="rateIcon"  ></ion-icon>
+      </span>
+      <span *ngIf="livre?.note >=3">
+        <ion-icon name="star" class="rateIcon" ></ion-icon>
+      </span>
+      <span *ngIf="livre?.note >=4">
+        <ion-icon name="star" class="rateIcon" ></ion-icon>
+      </span>
+      <span *ngIf="livre?.note >=5">
+        <ion-icon name="star" class="rateIcon" ></ion-icon>
+      </span><br>
+      <span *ngIf="livre?.prix ==0" style="font-size: small;"><ion-badge color="success">Gratuit</ion-badge></span>
+      <span *ngIf="livre?.prix >0" style="font-size: small;">Prix : {{livre.prix | currency:" ":true:"1.2"}} fcfa</span>
+
+    </ion-label>
+</ion-item>
 
 
-  <ion-grid style="margin-top: 40px;">
-    <ion-row>
-      <ion-col size="1">
-        <span class="slider-nav arrow-prev" (click)="slidePrev(sliderThree,slideWithNav3)">
-        </span>
-      </ion-col>
-      <ion-col size="12">
-
-        <ion-slides pager="false" [options]="slideOptsThree" #slideWithNav3
-          (ionSlideDidChange)="slideDidChange(sliderThree,slideWithNav3)">
-          <ion-slide *ngFor="let livre of listLivre">
-            <div *ngIf="livre.domaine==='Science'" (click)="showLivre(livre.idLivre)">
-            <div style="border: solid 2px; border-radius:6px;">
-              <img src="../../assets/Images/livre1.jpg" style="height: 100px;">
-            {{livre.titre}}
-          </div>
-
-        </div>
-          </ion-slide>
-        </ion-slides>
-        <div>
-          <a routerLink="" style="font-size: 10px; color: #4481FF; margin-left:200px ;">voir plus</a>
-        </div>
-      </ion-col>
-      <ion-col size="1">
-        <span class="slider-nav arrow-next" (click)="slideNext(sliderThree,slideWithNav3)">
-        </span>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="1">
-        <span class="slider-nav arrow-prev" (click)="slidePrev(sliderThree,slideWithNav3)">
-        </span>
-      </ion-col>
-      <ion-col size="12">
-
-        <ion-slides pager="false" [options]="slideOptsThree" #slideWithNav3
-          (ionSlideDidChange)="slideDidChange(sliderThree,slideWithNav3)">
-          <ion-slide *ngFor="let livre of listLivre">
-            <div style="border: solid 2px; border-radius:6px;">
-              <img src="../../assets/Images/livre1.jpg" style="height: 100px;">
-            {{livre.titre}}</div>
-          </ion-slide>
-        </ion-slides>
-
-      </ion-col>
-      <ion-col size="1">
-        <span class="slider-nav arrow-next" (click)="slideNext(sliderThree,slideWithNav3)">
-        </span>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-grid>
-    <ion-row>
-      <ion-col size="1">
-        <span class="slider-nav arrow-prev" (click)="slidePrev(sliderThree,slideWithNav3)">
-        </span>
-      </ion-col>
-      <ion-col size="12">
-
-        <ion-slides pager="false" [options]="slideOptsThree" #slideWithNav3
-          (ionSlideDidChange)="slideDidChange(sliderThree,slideWithNav3)">
-          <ion-slide *ngFor="let livre of listLivre">
-            <div style="border: solid 2px; border-radius:6px;">
-              <img src="../../assets/Images/livre1.jpg" style="height: 100px;">
-            {{livre.titre}}</div>
-          </ion-slide>
-        </ion-slides>
-
-      </ion-col>
-      <ion-col size="1">
-        <span class="slider-nav arrow-next" (click)="slideNext(sliderThree,slideWithNav3)">
-        </span>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</div>
 </ion-content>

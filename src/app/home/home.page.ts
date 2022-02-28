@@ -1,4 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { ServiceService } from './../service.service';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 
 @Component({
@@ -12,36 +13,41 @@ export class HomePage {
   @ViewChild('slideWithNav3', { static: false }) slideWithNav3: IonSlides;
 
   sliderOne: any;
-  
+  livre :any;
+  photo :any;
+slideImg:any;
   slideOptsOne = {
     initialSlide: 0,
     slidesPerView: 1,
     autoplay: true
   };
-  constructor() {
+  constructor(
+    private service: ServiceService,
+  ) {
+    this.photo = this.service.img;
     this.sliderOne =
     {
       isBeginningSlide: true,
       isEndSlide: false,
-      slidesItems: [
-        {
-          id: 1
-        },
-        {
-          id: 2
-        },
-        {
-          id: 3
-        },
-        {
-          id: 4
-        },
-        {
-          id: 5
-        }
-      ]
+      slidesItems : this.livre,
+  
+      
     };
   }
+  
+ngOnInit() {
+  
+  this.slideImg=["cover1.jpg","cover3.jpg","cover.jpg"];
+  this.service.listLivre().subscribe((response:any)=>{
+    this.livre = response;
+  })
+  console.log(this.photo);
+  
+  console.log(this.livre);
+  
+  
+}
+
   //Move to Next slide
   slideNext(object, slideView) {
     slideView.slideNext(500).then(() => {
@@ -78,5 +84,9 @@ export class HomePage {
     });
   }
 
+getAllbook(){
+
+ 
+}
 
 }

@@ -44,6 +44,8 @@ export class DetailPage implements OnInit {
     const modal = await this.modalctrl.create({
       component: DetailLivrePage,
       cssClass:'CSS',
+      showBackdrop: true,
+      backdropDismiss: true,
       componentProps: {
         idLivre: idLivre,
       },

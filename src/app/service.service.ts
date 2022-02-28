@@ -19,8 +19,12 @@ export class ServiceService {
     return this.http.get(this.url+"/utilisateur/login?login="+login+"&password="+password)
   }
 
-  listLivre(format :String){
+  livreByFormat(format :String){
     return this.http.get(this.url+"/livre/livrebyformat/"+format)
+  }
+
+  listLivre(){
+    return this.http.get(this.url+"/livre/lister/");
   }
 livreById(id:number){
   return this.http.get(this.url+"/livre/afficher/"+id)

@@ -53,7 +53,7 @@ export class LivrePage implements OnInit {
 
   //end popover
   livrebyformat(format: string) {
-    this.service.listLivre(format).subscribe((data: any) => {
+    this.service.livreByFormat(format).subscribe((data: any) => {
       this.listLivre = data;
       console.log('content' + JSON.stringify(this.listLivre));
     });

@@ -34,5 +34,7 @@ export class DetailLivrePage implements OnInit {
       console.log('Detail'+ JSON.stringify(this.livre));
     });}
 
-  
+  close(){
+    
+  }
 }

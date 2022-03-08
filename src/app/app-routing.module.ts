@@ -37,7 +37,7 @@ const routes: Routes = [
     loadChildren: () => import('./pdfviewer/pdfviewer.module').then( m => m.PdfviewerPageModule)
   },
   {
-    path: 'audiolecteur',
+    path: 'audiolecteur/:idLivre',
     loadChildren: () => import('./audiolecteur/audiolecteur.module').then( m => m.AudiolecteurPageModule)
   },
   {
@@ -53,7 +53,7 @@ const routes: Routes = [
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
-    path: 'ebookvue',
+    path: 'ebookvue/:idLivre',
     loadChildren: () => import('./ebookvue/ebookvue.module').then( m => m.EbookvuePageModule)
   },
   {
@@ -63,7 +63,8 @@ const routes: Routes = [
   {
     path: 'detail',
     loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
-  },  {
+  },
+  {
     path: 'edit-profile',
     loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
   },

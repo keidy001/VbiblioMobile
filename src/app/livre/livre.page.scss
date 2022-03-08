@@ -48,16 +48,7 @@ ion-title{
     color: white;
     bottom: 30px;
   }
-  ion-searchbar {
-    --icon-color: var(--ion-color-primary);
-    width: 60%;
-    height: 5%;
-    --background: white;
-    --radius: 30px;
-    color: black;
-  display: inline-block;
-  font-size: 30px;
-  }
+
    ion-searchbar ion-icon {
     right: 16px !important;
     left: auto !important;

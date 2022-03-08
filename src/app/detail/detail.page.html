@@ -6,7 +6,7 @@
     
   <ion-card-content>
     <h4 style="text-align: center; margin-top: -2px; color: #000; font-weight: 400; font-size: 14px; "><b>{{livre?.titre}}</b></h4>
-    <h6 style="text-align: center; margin-top: 2px; color: #000; font-weight: 400; font-size: 14px; "><b>Format :</b> {{livre?.format}}</h6>
+    <h6 style="text-align: center; margin-top: 2px; color: #000; font-weight: 400; font-size: 14px; "><b>Auteur :</b> {{livre?.auteur}}</h6>
     <h5 style="text-align: center; margin-top: 2px; color: #000; font-weight: 400; font-size: 14px; ">
 
       <span *ngIf="livre?.note >=1" >
@@ -25,7 +25,7 @@
         <ion-icon name="star" class="rateIcon" ></ion-icon>
       </span>
       </h5>
-      <ion-button class="but1" routerLink="/ebookvue">Lire </ion-button> 
+      <ion-button class="but1" routerLink="/ebookvue/{{livre?.idLivre}}">Lire </ion-button> 
       <ion-button class="but1" style="width: 80px;" *ngIf="livre?.prix <= 0">Télécharger</ion-button>
       <ion-button class="but1" *ngIf="livre?.prix > 0">Acheter</ion-button>
       <ion-button class="but1" (click)="showDetail(livre.idLivre)">Détail</ion-button>

@@ -3,6 +3,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, ModalController, PopoverController } from '@ionic/angular';
 import { ServiceService } from '../service.service';
+import { DetailLivrePage } from '../detail-livre/detail-livre.page';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,7 @@ export class LivrePage implements OnInit {
   listLivre: any[] = [];
   format: any;
   idLivre: any;
+  slideImg:any;
 
   constructor(
     private service: ServiceService,
@@ -30,9 +32,10 @@ export class LivrePage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.slideImg=["cover1.jpg","cover3.jpg","cover.jpg"];
+
     this.livrebyformat(this.route.snapshot.params.format);
     this.format = this.route.snapshot.params.format;
-    console.log('ok' + this.format);
     this.livrefile = this.service.livrefile;
     this.photo = this.service.img;
   }
@@ -41,8 +44,7 @@ export class LivrePage implements OnInit {
   async detailLivre(idLivre: any ) {
 
     const modal = await this.popCtrl.create({
-      component: DetailPage,
-      dismissOnSelect: true,
+      component: DetailLivrePage,
       cssClass:'popoverCss',
       componentProps: {
         idLivre: idLivre,

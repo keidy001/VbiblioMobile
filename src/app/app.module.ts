@@ -1,3 +1,4 @@
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { DocumentViewer } from '@awesome-cordova-plugins/document-viewer/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { File } from '@ionic-native/file/ngx';
@@ -10,7 +11,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PdfviewerPageModule } from './pdfviewer/pdfviewer.module';
 import { Media } from '@ionic-native/media/ngx';
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -19,15 +19,17 @@ import { Media } from '@ionic-native/media/ngx';
     AppRoutingModule,
     HttpClientModule,
     PdfviewerPageModule,
-    
+     
 
 
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }, Media, // <- plugin Media
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    InAppBrowser,
   File,
   FileTransfer,
-  DocumentViewer
+  DocumentViewer,
+  
   ],
   bootstrap: [AppComponent],
 })

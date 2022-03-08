@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController, PopoverController } from '@ionic/angular';
+import { AlertController, ModalController, PopoverController } from '@ionic/angular';
 import { LivrePage } from '../livre/livre.page';
 import { ServiceService } from '../service.service';
 
@@ -21,6 +21,7 @@ export class DetailLivrePage implements OnInit {
     private router: Router,
     private livreTs:LivrePage,
     private popCtrl:PopoverController,
+    public modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
@@ -35,6 +36,20 @@ export class DetailLivrePage implements OnInit {
     });}
 
   close(){
+    this.modalCtrl.dismiss({
+      
+  });
+  }
+   async rate(idLivre){
+
+      const modal = await this.popCtrl.create({
+        component: DetailLivrePage,
+        cssClass:'popoverCss',
+        componentProps: {
+          idLivre: idLivre,
+        },
+      });
+      return modal.present();
     
   }
 }

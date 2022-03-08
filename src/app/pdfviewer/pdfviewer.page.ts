@@ -1,4 +1,3 @@
-import { HomePage } from './../home/home.page';
 import { EbookvuePage } from './../ebookvue/ebookvue.page';
 import { Component, OnInit } from '@angular/core';
 import { DocumentViewer,DocumentViewerOptions } from '@awesome-cordova-plugins/document-viewer/ngx';
@@ -22,10 +21,5 @@ export class PdfviewerPage implements OnInit {
    
 
   }
-async showLivre(){
-  const popover = await this.popCtrl.create({
-    component: HomePage
-  })
-  return popover.present();
-}
+
 }

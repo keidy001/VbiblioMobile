@@ -11,21 +11,25 @@
 </ion-toolbar>
 
 <ion-content>
+<ion-segment>
+  <ion-segment-button value="article">
+    <ion-label>Articles</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="memoire">
+    <ion-label>Mémoires</ion-label>
+  </ion-segment-button>
+</ion-segment>
 
-<ion-item detail> 
+
+
+
+<ion-item detail *ngFor="let article of articles">
   <ion-img slot="start" src="../../assets/Images/pdf.png" style="width: 15%;"></ion-img>
-  <ion-label>PDF</ion-label>
+  <ion-label>{{article.titre}}</ion-label>
 </ion-item>
-<ion-item detail> 
+<ion-item detail *ngFor="let memoire of memoires">
   <ion-img slot="start" src="../../assets/Images/article.png" style="width: 15%;"></ion-img>
-  <ion-label>Mémoire</ion-label>
+  <ion-label>{{memoire.titre}}</ion-label>
 </ion-item>
-<ion-item detail> 
-  <ion-img slot="start" src="../../assets/Images/article.png" style="width: 15%;"></ion-img>
-  <ion-label>Articles</ion-label>
-</ion-item> 
-<ion-item detail> 
-  <ion-img slot="start" src="../../assets/Images/article.png" style="width: 15%;"></ion-img>
-  <ion-label>Cours</ion-label>
-</ion-item>   
+
 </ion-content>

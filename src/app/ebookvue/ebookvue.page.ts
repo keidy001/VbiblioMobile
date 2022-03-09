@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { DocumentViewer, DocumentViewerOptions } from '@awesome-cordova-plugins/document-viewer/ngx';
 import { NavController } from '@ionic/angular';
 import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
 
 @Component({
   selector: 'app-ebookvue',
@@ -15,47 +16,53 @@ import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-a
 
 
 export class EbookvuePage implements OnInit {
+title = 'Test';
+public page = 2 ;
+public pageLabel!: string;
+
   livre:any;
   options : InAppBrowserOptions = {
-    location : 'yes',//Or 'no' 
+    location : 'yes',//Or 'no'
     hidden : 'no', //Or  'yes'
-    clearcache : 'yes',
+    clearcache : 'no',
     clearsessioncache : 'yes',
-    zoom : 'yes',//Android only ,shows browser zoom controls 
+    zoom : 'yes',//Android only ,shows browser zoom controls
     hardwareback : 'yes',
     mediaPlaybackRequiresUserAction : 'yes',
-    shouldPauseOnSuspend : 'yes', //Android only 
+    shouldPauseOnSuspend : 'yes', //Android only
     closebuttoncaption : 'Close', //iOS only
-    disallowoverscroll : 'no', //iOS only 
-    toolbar : 'yes', //iOS only 
-    enableViewportScale : 'yes', //iOS only 
-    allowInlineMediaPlayback : 'no',//iOS only 
-    presentationstyle : 'pagesheet',//iOS only 
-    fullscreen : 'yes',//Windows only  
+    disallowoverscroll : 'no', //iOS only
+    toolbar : 'yes', //iOS only
+    enableViewportScale : 'yes', //iOS only
+    allowInlineMediaPlayback : 'no',//iOS only
+    presentationstyle : 'pagesheet',//iOS only
+    fullscreen : 'yes',//Windows only
     toolbarcolor:'blue',
 };
 
 
 
   constructor(
-    private document: DocumentViewer, 
-    private navCtrl :NavController, 
-    private file :File, 
+    private document: DocumentViewer,
+    private navCtrl :NavController,
+    private file :File,
     private transfer : FileTransfer,
     private iab: InAppBrowser,
     private service : ServiceService,
     private route :ActivatedRoute,
-    ) { }
+    ) {
+      pdfDefaultOptions.assetsFolder = 'bleeding-edge';
+     }
 
 
-    
+
   ngOnInit() {
    this.read();
 
   }
-  
+
 read1(){
-  
+
   this.iab.create('assets/test.pdf').show();
   // let option : DocumentViewerOptions ={
   //   title: ''
@@ -65,19 +72,12 @@ read1(){
 }
 
 
-public openWithSystemBrowser(url : string){
-  let target = "_system";
-  this.iab.create(url,target,this.options);
-}
 public read(){
   let target = "_self";
-  this.iab.create(this.service.livrefile+"/"+this.route.snapshot.params["idLivre"] ,target,this.options).show();
+  this.iab.create(this.service.livrefile+"/"+this.route.snapshot.params["idLivre"],target,this.options).show();
   console.log(this.service.livrefile+"/"+this.route.snapshot.params["idLivre"]);
-  
+
 }
-public openWithCordovaBrowser(url : string){
-  let target = "_self";
-  this.iab.create(url,target,this.options);
-}  
+
 
 }

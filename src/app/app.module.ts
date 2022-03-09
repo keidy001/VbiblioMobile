@@ -1,3 +1,4 @@
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { DocumentViewer } from '@awesome-cordova-plugins/document-viewer/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
@@ -18,10 +19,8 @@ import { Media } from '@ionic-native/media/ngx';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    NgxExtendedPdfViewerModule,
     PdfviewerPageModule,
-     
-
-
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }, Media, // <- plugin Media
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
@@ -29,7 +28,7 @@ import { Media } from '@ionic-native/media/ngx';
   File,
   FileTransfer,
   DocumentViewer,
-  
+  NgxExtendedPdfViewerModule
   ],
   bootstrap: [AppComponent],
 })

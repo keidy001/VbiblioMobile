@@ -1,3 +1,4 @@
+import { ServiceService } from './../service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentsPage implements OnInit {
 
-  constructor() { }
+  memoires: any;
+  articles: any;
+  constructor(
+    public service: ServiceService
+
+  ) { }
 
   ngOnInit() {
+    this.service.livreByFormat('Article').subscribe((data)=>{
+      this.articles = data;
+    });
+
+  this.service.livreByFormat('Memoire').subscribe((data)=>{
+    this.memoires = data;
+  });
   }
 
 }

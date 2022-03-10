@@ -1,16 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>audiolecteur</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-menu-button menu="main-menu"></ion-menu-button>
+  </ion-buttons>
+  <ion-title class="ion-text-center"> Virtual-Biblio</ion-title>
+  <ion-buttons slot="end" style="margin-right:5%;" routerLink="/profile">
+    <ion-icon slot="icon-only" name="person-circle" ></ion-icon>
+  </ion-buttons>
+</ion-toolbar>
 
-<ion-content>
-  <div class="img_box">
-    <img src="{{img}}">
+<ion-content >
+  <div class="img_box" style="width: 50%; margin: auto;padding: 5%;" >
+
+    <img src="{{img}}" >
   </div>
+  <h6 style="color: white; text-align: center;">Titre: {{livre?.titre}}</h6>
+  <h6 style="color: white; text-align: center;">Auteur: {{livre?.auteur}}</h6>
+  <p style="color: white; text-align: center;">Catégorie: {{livre?.category.category}}</p>
 
-  <ion-item>
-    <audio class="player" controls>
+  <ion-item style="margin-top: 5%;">
+    <audio class="player" controls autoplay style="margin-top: 5%; height: 30px;">
       <source src="{{audio}}">
     </audio>
   </ion-item>

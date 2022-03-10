@@ -19,7 +19,7 @@ export class LivrePage implements OnInit {
   listLivre: any[] = [];
   format: any;
   idLivre: any;
-  slideImg:any;
+  slideImg: any;
 
   constructor(
     private service: ServiceService,
@@ -27,7 +27,7 @@ export class LivrePage implements OnInit {
     public alert: AlertController,
     private router: Router,
     private popCtrl: PopoverController,
-    private modalctrl:ModalController
+    private modalctrl: ModalController
 
   ) {}
 
@@ -43,7 +43,7 @@ export class LivrePage implements OnInit {
   //content of popover
   async detailLivre(idLivre: any ) {
 
-    const modal = await this.popCtrl.create({
+    const modal = await this.modalctrl.create({
       component: DetailLivrePage,
       cssClass:'popoverCss',
       componentProps: {
@@ -55,7 +55,7 @@ export class LivrePage implements OnInit {
 
   //end popover
   livrebyformat(format: string) {
-    this.service.livreByFormat(format).subscribe((data: any) => {
+    this.service.livreByFormatNotDeleted(format, false).subscribe((data: any) => {
       this.listLivre = data;
       console.log('content' + JSON.stringify(this.listLivre));
     });

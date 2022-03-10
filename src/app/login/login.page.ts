@@ -32,15 +32,27 @@ password : any;
         localStorage.setItem('isLogin', JSON.stringify(this.loginInfo));
         localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
       }else{
-         
+
       this.presentToast();
     }
-  })
+  },
+  (err) => { this.errorServer();}
+  );
+
 }
   async presentToast() {
           const toast = await this.toast.create({
             message: 'Identifiant ou mot de passe incorrect',
             duration: 2000,
+            position: 'middle',
+            color:'danger'
+          });
+          toast.present();
+        }
+        async errorServer() {
+          const toast = await this.toast.create({
+            message: 'Oups! Erreur de connexion veillez réessayez ultérieurement',
+            duration: 3000,
             position: 'middle',
             color:'danger'
           });

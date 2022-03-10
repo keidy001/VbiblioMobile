@@ -42,7 +42,6 @@
     "cordova-plugin-file-transfer": "^1.7.1",
     "cordova-plugin-inappbrowser": "^5.0.0",
     "cordova-plugin-media": "^5.0.4",
-    "ng2-pdf-viewer": "^7.0.2",
     "ngx-extended-pdf-viewer": "^12.0.0-alpha.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",

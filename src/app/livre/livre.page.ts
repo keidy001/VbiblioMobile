@@ -55,7 +55,7 @@ export class LivrePage implements OnInit {
 
   //end popover
   livrebyformat(format: string) {
-    this.service.livreByFormat(format).subscribe((data: any) => {
+    this.service.livreByFormatNotDeleted(format, false).subscribe((data: any) => {
       this.listLivre = data;
       console.log('content' + JSON.stringify(this.listLivre));
     });

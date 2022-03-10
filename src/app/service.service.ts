@@ -28,6 +28,9 @@ export class ServiceService {
   livreByFormat(format: string){
     return this.http.get(this.url+'/livre/livrebyformat/'+format);
   }
+  livreByFormatNotDeleted(format: string, state: boolean){
+    return this.http.get(this.url+'/livre/formatNotDeleleted/'+format+'/'+state);
+  }
 
 // Methode for get all books
 

@@ -5,10 +5,10 @@ import { HttpClient, HttpErrorResponse} from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServiceService {
-  url='http://localhost:8080/api';
-  img='http://localhost:8080/api/livre/photo/';
-  audiofile='http://localhost:8080/api/livre/audio';
-  livrefile='http://localhost:8080/api/livre/livre';
+  url='https://virtualbiblio.herokuapp.com/api';
+  img='https://virtualbiblio.herokuapp.com/api/livre/photo/';
+  audiofile='https://virtualbiblio.herokuapp.com/api/livre/audio';
+  livrefile='https://virtualbiblio.herokuapp.com/api/livre/livre';
 
   constructor(private http: HttpClient) { }
 
@@ -47,16 +47,16 @@ livreById(id: number){
 //Methode for update user information
 
 updateUser(id: any, data: any){
-  this.http.put(this.url+'utilisateur/modifier'+id, data, {responseType:'text'});
+  this.http.put(this.url+'/utilisateur/modifier'+id, data, {responseType:'text'});
 }
 
 // Methode for get User by his id
 getUser(id){
-  this.http.get(this.url+'utilisateur/afficher'+id);
+  this.http.get(this.url+'/utilisateur/afficher'+id);
 }
 
 //Methode for get all Articles and Memory
 getDocument(id){
-  this.http.get(this.url+'documents/lister');
+  this.http.get(this.url+'/documents/lister');
 }
 }

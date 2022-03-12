@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
 import { DocumentViewer, DocumentViewerOptions } from '@awesome-cordova-plugins/document-viewer/ngx';
 import { NavController } from '@ionic/angular';
 import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
-import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
 
 @Component({
   selector: 'app-ebookvue',
@@ -24,7 +23,7 @@ public pageLabel!: string;
   options : InAppBrowserOptions = {
     location : 'yes',//Or 'no'
     hidden : 'no', //Or  'yes'
-    clearcache : 'no',
+    clearcache : 'yes',
     clearsessioncache : 'yes',
     zoom : 'yes',//Android only ,shows browser zoom controls
     hardwareback : 'yes',
@@ -51,7 +50,6 @@ public pageLabel!: string;
     private service : ServiceService,
     private route :ActivatedRoute,
     ) {
-      pdfDefaultOptions.assetsFolder = 'bleeding-edge';
      }
 
 
@@ -62,8 +60,9 @@ public pageLabel!: string;
   }
 
 read1(){
+  let target = "_self";
 
-  this.iab.create('assets/test.pdf').show();
+  this.iab.create('assets/test.pdf',target,this.options).show();
   // let option : DocumentViewerOptions ={
   //   title: ''
   // };

@@ -54,6 +54,7 @@ const routes: Routes = [
   },
   {
     path: 'ebookvue/:idLivre',
+    //path: 'ebookvue',
     loadChildren: () => import('./ebookvue/ebookvue.module').then( m => m.EbookvuePageModule)
   },
   {
@@ -67,7 +68,8 @@ const routes: Routes = [
   {
     path: 'edit-profile',
     loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
-  },  {
+  },
+  {
     path: 'library',
     loadChildren: () => import('./library/library.module').then( m => m.LibraryPageModule)
   },

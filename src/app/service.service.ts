@@ -47,16 +47,16 @@ livreById(id: number){
 //Methode for update user information
 
 updateUser(id: any, data: any){
-  this.http.put(this.url+'utilisateur/modifier'+id, data, {responseType:'text'});
+  this.http.put(this.url+'/utilisateur/modifier'+id, data, {responseType:'text'});
 }
 
 // Methode for get User by his id
 getUser(id){
-  this.http.get(this.url+'utilisateur/afficher'+id);
+  this.http.get(this.url+'/utilisateur/afficher'+id);
 }
 
 //Methode for get all Articles and Memory
 getDocument(id){
-  this.http.get(this.url+'documents/lister');
+  this.http.get(this.url+'/documents/lister');
 }
 }

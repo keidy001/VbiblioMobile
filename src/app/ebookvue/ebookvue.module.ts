@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { EbookvuePageRoutingModule } from './ebookvue-routing.module';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { EbookvuePage } from './ebookvue.page';
 
@@ -14,7 +13,6 @@ import { EbookvuePage } from './ebookvue.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PdfViewerModule,
 
     EbookvuePageRoutingModule
   ],

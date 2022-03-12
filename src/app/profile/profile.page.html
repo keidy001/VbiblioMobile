@@ -1,45 +1,37 @@
-
 <ion-toolbar color="primary">
-<ion-back-button></ion-back-button>
-  <ion-buttons slot="primary">
-    <ion-button routerLink="/profile">
-      <ion-icon slot="icon-only" name="person-circle" ></ion-icon>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon slot="start" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  <ion-title class="ion-text-center"> Virtual-Biblio</ion-title>
+  <ion-buttons slot="end">
+    <ion-button >
+      <ion-icon slot="start" ></ion-icon>
     </ion-button>
   </ion-buttons>
-  <ion-title> V-Biblio</ion-title>
 </ion-toolbar>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" >
 
 <div class="avatarDiv">
-  <ion-avatar class="avatar">
-    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+  <ion-avatar class="avatar" style="height: 100%; width: 50%;">
+    <img src="../../assets/icon/user.png">
+    <button large style="margin:-40px  0 0 50%; " >
+    <ion-icon  name="camera-outline" style="zoom:2.0;"></ion-icon>
+    </button>
   </ion-avatar>
-  {{userData.nom}}
-  
+
+
 </div>
-  <ion-card>
-    <div></div>
-    <ion-card-header class="editProfileIcon"  >
-      <ion-card-title >
-        <ion-icon name="create" (click)="edit()"></ion-icon>
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-card-subtitle>
-        <ion-label><b>Email :</b></ion-label>
-       <div> {{userData.email}}</div>
-      </ion-card-subtitle>
-      <ion-card-subtitle>
-        <ion-label><b>Téléphone : </b></ion-label>
-        <div> {{userData.telephone}}</div>
-      </ion-card-subtitle>
-      <ion-card-subtitle>
-        <ion-label><b>Login :</b></ion-label>
-        <div> {{userData.login}}</div>
-      </ion-card-subtitle>
-    </ion-card-content>
-  </ion-card>
+<span> <ion-icon name="create-outline" style="zoom:1.5; float:right;" (click)="edit()"></ion-icon></span>
+<div class="userInfo" style="background-color: rgb(64, 138, 235); color: white;">
+     <p > <ion-label><b > Nom :</b></ion-label> {{userData.nom}}</p>
+     <p > <ion-label><b > Email :</b></ion-label> {{userData.email}}</p>
+     <p > <ion-label><b > Téléphone :</b></ion-label> {{userData.telephone}}</p>
+    </div>
+
+
 
 
 

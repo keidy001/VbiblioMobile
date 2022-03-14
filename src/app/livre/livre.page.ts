@@ -20,7 +20,7 @@ export class LivrePage implements OnInit {
   format: any;
   idLivre: any;
   slideImg: any;
-
+  filterTerm:any; 
   constructor(
     private service: ServiceService,
     private route: ActivatedRoute,

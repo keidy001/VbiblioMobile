@@ -26,7 +26,7 @@
     <!-- <form>
       <div style="margin: 0% 5%;">Rechercher : <input style="border:solid 1px; width: 50%; height: 20px; border-radius: 50px; margin-left: 5%;"></div>
     </form> -->
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
 
   </div>
   <ion-content [fullscreen]="true" scrollbar-y-none style="background-color: white;">
@@ -39,7 +39,7 @@
   <ion-row>
 
 
-      <ion-col size="4"  *ngFor="let livre of listLivre">
+      <ion-col size="4"  *ngFor="let livre of listLivre | filter:filterTerm">
 
         <ion-card text-center  (click)="detailLivre(livre.idLivre)"  routerLink="/livre/Ebook" style="background-color: white;border: solid 1px;margin: -1px; width: 100%;">
           <!--<ion-icon class="ion-img" name="people"></ion-icon> -->

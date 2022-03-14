@@ -5,11 +5,14 @@ import { HttpClient, HttpErrorResponse} from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServiceService {
-  url='https://virtualbiblio.herokuapp.com/api';
-  img='https://virtualbiblio.herokuapp.com/api/livre/photo/';
-  audiofile='https://virtualbiblio.herokuapp.com/api/livre/audio';
-  livrefile='https://virtualbiblio.herokuapp.com/api/livre/livre';
-
+  // url='https://virtualbiblio.herokuapp.com/api';
+  // img='https://virtualbiblio.herokuapp.com/api/livre/photo/';
+  // audiofile='https://virtualbiblio.herokuapp.com/api/livre/audio';
+  // livrefile='https://virtualbiblio.herokuapp.com/api/livre/livre';
+  url='http://localhost:8080/api';
+  img='http://localhost:8080/api/livre/photo/';
+  audiofile='http://localhost:8080/api/api/livre/audio';
+  livrefile='http://localhost:8080/api/livre/livre';
   constructor(private http: HttpClient) { }
 
 //Methode for add user

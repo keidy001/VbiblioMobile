@@ -11,7 +11,7 @@
 </ion-toolbar>
 
 <ion-content>
-<ion-segment>
+<ion-segment (ionChange)="segmentChange($event)">
   <ion-segment-button value="article">
     <ion-label>Articles</ion-label>
   </ion-segment-button>
@@ -21,15 +21,18 @@
 </ion-segment>
 
 
-
-
+<ion-list *ngIf="type==='article'">
 <ion-item detail *ngFor="let article of articles">
   <ion-img slot="start" src="../../assets/Images/pdf.png" style="width: 15%;"></ion-img>
   <ion-label>{{article.titre}}</ion-label>
 </ion-item>
+</ion-list>
+<ion-list *ngIf="type==='memoire'">
 <ion-item detail *ngFor="let memoire of memoires">
   <ion-img slot="start" src="../../assets/Images/article.png" style="width: 15%;"></ion-img>
-  <ion-label>{{memoire.titre}}</ion-label>
+  <ion-label>
+   <h6> {{memoire.titre}} <small>{{memoire.category.category}}</small> </h6>
+  </ion-label>
 </ion-item>
-
+</ion-list>
 </ion-content>

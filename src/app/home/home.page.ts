@@ -33,6 +33,7 @@ export class HomePage {
       slidesItems : this.livre,
 
     };
+    
   }
 ngOnInit() {
 
@@ -87,5 +88,6 @@ getAllbook(){
 
 
 }
+
 
 }

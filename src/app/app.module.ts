@@ -11,7 +11,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PdfviewerPageModule } from './pdfviewer/pdfviewer.module';
 import { Media } from '@ionic-native/media/ngx';
-import { FileOpener} from '@ionic-native/file-opener/ngx'
+//import { FileOpener} from '@ionic-native/file-opener/ngx';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -20,6 +21,7 @@ import { FileOpener} from '@ionic-native/file-opener/ngx'
     AppRoutingModule,
     HttpClientModule,
     PdfviewerPageModule,
+    Ng2SearchPipeModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }, Media, // <- plugin Media
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
@@ -27,7 +29,7 @@ import { FileOpener} from '@ionic-native/file-opener/ngx'
   File,
   FileTransfer,
   DocumentViewer,
-  FileOpener
+  //FileOpener
   ],
   bootstrap: [AppComponent],
 })

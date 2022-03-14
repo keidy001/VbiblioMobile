@@ -22,6 +22,9 @@ password : any;
   }
 
   login(){
+    console.log(this.identifiant);
+    console.log(this.password);
+    
     this.service.login(this.identifiant,this.password).subscribe((res)=>{
       if(res){
 

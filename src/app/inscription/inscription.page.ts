@@ -22,7 +22,7 @@ export class InscriptionPage implements OnInit {
 
     ) { }
 
-  
+
     ngOnInit() {
 
       this.ionicForm = this.formBuilder.group({
@@ -37,7 +37,7 @@ export class InscriptionPage implements OnInit {
     get errorControl() {
       return this.ionicForm.controls;
     }
-  
+
     inscription(){
       this.isSubmitted = true;
       if (!this.ionicForm.valid) {
@@ -49,17 +49,26 @@ export class InscriptionPage implements OnInit {
         this.errorControl;
         return false;
         }
-   
+
       } else {
         this.userService.add(this.ionicForm.value).subscribe((data)=>{
-          this.router.navigateByUrl('/login')
+          this.router.navigateByUrl('/login');
+          this.successToast();
         })
         console.log(this.ionicForm.value)
       }
     }
-    
-    
-  
+
+    async successToast() {
+      const toast = await this.toast.create({
+        message: 'Compte créer avec succès, Connectez-vous avec votre login et mot de passe',
+        duration: 4000,
+        position: 'middle',
+        color:'success'
+      });
+      toast.present();
+    }
+
 
     async presentToast() {
       const toast = await this.toast.create({

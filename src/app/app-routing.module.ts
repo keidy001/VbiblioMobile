@@ -76,7 +76,11 @@ const routes: Routes = [
   {
     path: 'profile-pop',
     loadChildren: () => import('./profile-pop/profile-pop.module').then( m => m.ProfilePopPageModule)
+  },  {
+    path: 'detail-librairy',
+    loadChildren: () => import('./detail-librairy/detail-librairy.module').then( m => m.DetailLibrairyPageModule)
   },
+
 
 
 

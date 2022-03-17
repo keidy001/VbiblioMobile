@@ -22,13 +22,13 @@
 
 
 <ion-list *ngIf="type==='article'">
-<ion-item detail *ngFor="let article of articles">
+<ion-item detail *ngFor="let article of articles" routerLink="/ebookvue/{{article?.idLivre}}">
   <ion-img slot="start" src="../../assets/Images/pdf.png" style="width: 15%;"></ion-img>
   <ion-label>{{article.titre}}</ion-label>
 </ion-item>
 </ion-list>
 <ion-list *ngIf="type==='memoire'">
-<ion-item detail *ngFor="let memoire of memoires">
+<ion-item detail *ngFor="let memoire of memoires" routerLink="/ebookvue/{{memoire?.idLivre}}">
   <ion-img slot="start" src="../../assets/Images/article.png" style="width: 15%;"></ion-img>
   <ion-label>
    <h6> {{memoire.titre}} <small>{{memoire.category.category}}</small> </h6>

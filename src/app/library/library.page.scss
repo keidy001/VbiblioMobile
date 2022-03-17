@@ -1,0 +1,34 @@
+.library{
+
+
+  background-attachment: fixed;
+  background-color: #f6f6f6;
+  background-size:cover;
+   border: solid 1px;
+   margin: 1px;
+    width: 100%;
+   height: 150px;
+   box-shadow:12;
+   elevation : -45deg;
+
+}
+ion-content{
+
+  // overwrite inline styles
+--offset-bottom: auto!important;
+--overflow: hidden;
+overflow: auto;
+&::-webkit-scrollbar {
+display: none;
+}
+}
+.slide-text{
+
+  color: rgb(0, 0, 0);
+  bottom: 30px;
+  background-color: #a6c4ff;
+  border-radius: 10px;
+  background-position: 20%;
+    margin-top: 3%;
+  z-index: 9;
+}

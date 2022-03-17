@@ -24,17 +24,17 @@
       <ion-icon name="star" class="rateIcon" ></ion-icon>
     </span>
   </span>
-   <a href="" style="padding: 5%;"> <ion-icon name="share-social-outline"></ion-icon></a>
-   <a (click)="rate(livre.idLivre)"  style="padding: 5%;"> <ion-icon name="add-circle-outline"></ion-icon></a>
+   <!-- <a href="" style="padding: 5%;"> <ion-icon name="share-social-outline"></ion-icon></a>
+   <a (click)="rate(livre.idLivre)"  style="padding: 5%;"> <ion-icon name="add-circle-outline"></ion-icon></a> -->
     <h6 style="text-align: left; margin-top: 6%; color: #000; font-weight: 400; font-size: 14px; "><b>Description :</b></h6>
     <p> {{livre?.description}}</p>
     <ion-button class="but1" *ngIf="livre?.format==='AudioBook'" routerLink="/audiolecteur/{{livre?.idLivre}}">Lire </ion-button>
     <ion-button class="but1" *ngIf="livre?.format!=='AudioBook'" routerLink="/ebookvue/{{livre?.idLivre}}">Lire </ion-button>
     <ion-button class="but1" style="width: 90px; " *ngIf="livre?.prix <= 0">Télécharger</ion-button>
     <ion-button class="but1" *ngIf="livre?.prix > 0">Acheter</ion-button>
-    <ion-button class="but1" (click)="close()">Fermer</ion-button>
-    <!-- <a href="" style="padding: 5%;"> <ion-icon name="share-social-outline"></ion-icon></a>
-    <a (click)="rate(livre.idLivre)"  style="padding: 5%;"> <ion-icon name="add-circle-outline"></ion-icon></a>
-      -->
+    <ion-button class="but1" (click)="close()">Retour</ion-button>
+    <!-- <a href="" style="padding: 5%;"> <ion-icon name="share-social-outline"></ion-icon></a> -->
+    <!-- <a (click)="rate(livre.idLivre)"  style="padding: 5%;"> <ion-icon name="add-circle-outline"></ion-icon></a> -->
+
   </div>
 

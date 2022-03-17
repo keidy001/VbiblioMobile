@@ -1,3 +1,4 @@
+import { ServiceService } from './../service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LibraryPage implements OnInit {
 
-  constructor() { }
+  librairy: any;
+  constructor(
+    private service: ServiceService
+  ) { }
 
   ngOnInit() {
+
+    this.service.getAllLibrairy().subscribe((data)=>{
+      this.librairy = data;
+    });
   }
 
 }

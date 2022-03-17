@@ -37,7 +37,7 @@ export class DocumentsPage implements OnInit {
 
   }
   detailarticle(){
-    console.log('ok');
+
 
   }
 

@@ -10,6 +10,7 @@ export class DetailLibrairyPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

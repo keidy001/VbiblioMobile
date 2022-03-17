@@ -76,10 +76,20 @@ const routes: Routes = [
   {
     path: 'profile-pop',
     loadChildren: () => import('./profile-pop/profile-pop.module').then( m => m.ProfilePopPageModule)
-  },  {
+  },
+  {
     path: 'detail-librairy',
     loadChildren: () => import('./detail-librairy/detail-librairy.module').then( m => m.DetailLibrairyPageModule)
   },
+  {
+    path: 'payment/:id',
+    loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'choix-payment',
+    loadChildren: () => import('./choix-payment/choix-payment.module').then( m => m.ChoixPaymentPageModule)
+  },
+
 
 
 

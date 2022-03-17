@@ -60,7 +60,7 @@
     <ion-col size="12">
       <ion-slides *ngFor="let cat of category" pager="false" [options]="slideOptsTwo" #slideWithNav2
       (ionSlideDidChange)="SlideDidChange(sliderTwo,slideWithNav2)">
-      <ion-slide *ngFor="let livre of listLivre">
+      <ion-slide *ngFor="let livre of listLivre"  >
           <ion-card class="ion-card" (click)="detailLivre(livre.idLivre)" >
           <img src="{{photo}}{{livre.idLivre}} " style="width: 90px; height: 120px;">
         <b>{{livre.format}}</b>

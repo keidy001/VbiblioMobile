@@ -1,32 +1,38 @@
 
 <div style="margin: 5%;">
+<ion-row>
+  <ion-col size="5">
 
-  <img src="{{photo}}{{livre?.idLivre}}"
-  style="width: 30%; height: 40%;  display:inline-flex;   margin-top: 5px; margin-bottom: 0%; border: solid 1px;">
-    <span style="margin-left: 5%; position: absolute; margin-top: 15%; color: #000; font-weight: 400; font-size: 14px; "><b>{{livre?.titre}}</b></span>
-    <span style="margin-left: 5%; position: absolute; margin-top: 25%; color: #000; font-weight: 400; font-size: 14px; "><b>Auteur :</b> {{livre?.auteur}}</span>
-    <span *ngIf="livre.prix >0"  style="margin-left: 5%; position: absolute; margin-top: 35%; color: #000; font-weight: 400; font-size: 14px; "><ion-badge color="primary" mode="ios">{{livre.prix | currency:" ":true:"1.0"}} fcfa</ion-badge></span>
-    <span *ngIf="livre.prix ==0" style="margin-left: 5%; position: absolute; margin-top: 35%; color: #000; font-weight: 400; font-size: 14px; "><ion-badge color="primary" mode="ios">Gratuit</ion-badge></span>
-    <span *ngIf="livre.prix >0" style="margin-left: 5%; position: absolute; margin-top: 45%; color: #000; font-weight: 400; font-size: 14px; ">
-    <span *ngIf="livre?.note >=1" >
-      <ion-icon name="star" class="rateIcon" ></ion-icon>
-    </span>
-    <span *ngIf="livre?.note >=2">
-      <ion-icon name="star" class="rateIcon"  ></ion-icon>
-    </span>
-    <span *ngIf="livre?.note >=3">
-      <ion-icon name="star" class="rateIcon" ></ion-icon>
-    </span>
-    <span *ngIf="livre?.note >=4">
-      <ion-icon name="star" class="rateIcon" ></ion-icon>
-    </span>
-    <span *ngIf="livre?.note >=5">
-      <ion-icon name="star" class="rateIcon" ></ion-icon>
-    </span>
-  </span>
-   <!-- <a href="" style="padding: 5%;"> <ion-icon name="share-social-outline"></ion-icon></a>
-   <a (click)="rate(livre.idLivre)"  style="padding: 5%;"> <ion-icon name="add-circle-outline"></ion-icon></a> -->
-    <h6 style="text-align: left; margin-top: 6%; color: #000; font-weight: 400; font-size: 14px; "><b>Description :</b></h6>
+    <img src="{{photo}}{{livre?.idLivre}}"
+    style="padding: auto; width: 100%; height: 100%;  display:inline-flex;   margin-top: 5px; margin-bottom: 0%; border: solid 1px;">
+  </ion-col>
+  <ion-col size="7">
+
+    <h6 ><b>{{livre?.titre}}</b></h6>
+    <p ><b>Auteur :</b> {{livre?.auteur}}</p>
+    <p *ngIf="livre.prix >0"  ><ion-badge color="primary" mode="ios">{{livre.prix | currency:" ":true:"1.0"}} fcfa</ion-badge></p>
+    <p *ngIf="livre.prix ==0"   ><ion-badge color="primary" mode="ios">Gratuit</ion-badge></p>
+
+      <span *ngIf="livre?.note >=1" >
+        <ion-icon name="star" class="rateIcon" ></ion-icon>
+      </span>
+      <span *ngIf="livre?.note >=2">
+        <ion-icon name="star" class="rateIcon"  ></ion-icon>
+      </span>
+      <span *ngIf="livre?.note >=3">
+        <ion-icon name="star" class="rateIcon" ></ion-icon>
+      </span>
+      <span *ngIf="livre?.note >=4">
+        <ion-icon name="star" class="rateIcon" ></ion-icon>
+      </span>
+      <span *ngIf="livre?.note >=5">
+        <ion-icon name="star" class="rateIcon" ></ion-icon>
+      </span>
+    </ion-col>
+   <a href="" style="padding: 5%;"> <ion-icon name="share-social-outline"></ion-icon></a>
+   <a (click)="rate(livre.idLivre)"  style="padding: 5%;"> <ion-icon name="add-circle-outline"></ion-icon></a>
+  </ion-row>
+  <h6 style="text-align: left; margin-top: 6%; color: #000; font-weight: 400; font-size: 14px; "><b>Description :</b></h6>
     <p> {{livre?.description}}</p>
     <ion-button class="but1" *ngIf="livre?.format==='AudioBook'" routerLink="/audiolecteur/{{livre?.idLivre}}">Lire </ion-button>
     <ion-button class="but1" *ngIf="livre?.format!=='AudioBook'" routerLink="/ebookvue/{{livre?.idLivre}}">Lire </ion-button>

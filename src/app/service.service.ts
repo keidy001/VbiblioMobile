@@ -70,4 +70,9 @@ getAllLibrairy(){
 getLivreByLibrairy(id: any){
   return this.http.get(this.url+'/livre/livreByLibrairy/'+id);
 }
-}
+
+
+// Get All Category not delleted
+getAllcategory(state: boolean){
+  return this.http.get(this.url+'/category/byStatus/'+state);
+}}

@@ -39,7 +39,7 @@
   <ion-row>
 
 
-      <ion-col size="4"  *ngFor="let livre of listLivre | filter:filterTerm">
+      <ion-col size="5"  *ngFor="let livre of listLivre | filter:filterTerm">
 
         <ion-card text-center  (click)="detailLivre(livre.idLivre)"  routerLink="/livre/Ebook" style="background-color: white;border: solid 1px;margin: -1px; width: 100%;">
           <!--<ion-icon class="ion-img" name="people"></ion-icon> -->
@@ -50,5 +50,25 @@
       </ion-col>
 
 </ion-row>
+</ion-grid>
+
+
+
+<ion-grid>
+  <ion-row>
+  
+    <ion-col size="12">
+      <ion-slides *ngFor="let cat of category" pager="false" [options]="slideOptsTwo" #slideWithNav2
+      (ionSlideDidChange)="SlideDidChange(sliderTwo,slideWithNav2)">
+      <ion-slide *ngFor="let livre of listLivre"  >
+          <ion-card class="ion-card" (click)="detailLivre(livre.idLivre)" >
+          <img src="{{photo}}{{livre.idLivre}} " style="width: 90px; height: 120px;">
+        <b>{{livre.format}}</b>
+        </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </ion-col>
+  
+  </ion-row>
 </ion-grid>
 </ion-content>

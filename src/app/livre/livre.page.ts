@@ -1,7 +1,7 @@
 import { DetailPage } from './../detail/detail.page';
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController, ModalController, PopoverController } from '@ionic/angular';
+import { AlertController, IonSlides, ModalController, PopoverController } from '@ionic/angular';
 import { ServiceService } from '../service.service';
 import { DetailLivrePage } from '../detail-livre/detail-livre.page';
 
@@ -14,6 +14,9 @@ import { DetailLivrePage } from '../detail-livre/detail-livre.page';
   styleUrls: ['./livre.page.scss'],
 })
 export class LivrePage implements OnInit {
+  @ViewChild('slideWithNav2', { static: false }) slideWithNav2: IonSlides;
+  sliderTwo: any;
+
   livrefile: any;
   photo: any;
   listLivre: any[] = [];
@@ -21,6 +24,7 @@ export class LivrePage implements OnInit {
   idLivre: any;
   slideImg: any;
   filterTerm:any; 
+  category:any;
   constructor(
     private service: ServiceService,
     private route: ActivatedRoute,
@@ -30,6 +34,30 @@ export class LivrePage implements OnInit {
     private modalctrl: ModalController
 
   ) {}
+  slideOptsTwo = {
+    initialSlide: 1,
+    slidesPerView: 2,
+    loop: true,
+    centeredSlides: true,
+    spaceBetween: 3
+  };
+  SlideDidChange(object, slideView) {
+    this.checkIfNavDisabled(object, slideView);
+  }
+  checkIfNavDisabled(object, slideView) {
+    this.checkisBeginning(object, slideView);
+    this.checkisEnd(object, slideView);
+  }
+  checkisBeginning(object, slideView) {
+    slideView.isBeginning().then((istrue) => {
+      object.isBeginningSlide = istrue;
+    });
+  }
+  checkisEnd(object, slideView) {
+    slideView.isEnd().then((istrue) => {
+      object.isEndSlide = istrue;
+    });
+  }
 
   ngOnInit() {
     this.slideImg=["cover1.jpg","cover3.jpg","cover.jpg"];
@@ -38,6 +66,8 @@ export class LivrePage implements OnInit {
     this.format = this.route.snapshot.params.format;
     this.livrefile = this.service.livrefile;
     this.photo = this.service.img;
+    
+    this.allCategory();
   }
 
   //content of popover
@@ -57,7 +87,13 @@ export class LivrePage implements OnInit {
   livrebyformat(format: string) {
     this.service.livreByFormatNotDeleted(format, false).subscribe((data: any) => {
       this.listLivre = data;
+      
       console.log('content' + JSON.stringify(this.listLivre));
     });
+  }
+  allCategory(){
+    this.service.getAllcategory(false).subscribe((data)=>{
+      this.category = data;
+    })
   }
 }

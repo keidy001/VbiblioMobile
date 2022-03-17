@@ -62,4 +62,7 @@ getUser(id){
 getDocument(id){
   this.http.get(this.url+'/documents/lister');
 }
-}
+// Get All Category not delleted
+getAllcategory(state: boolean){
+  return this.http.get(this.url+'/category/byStatus/'+state);
+}}

@@ -36,7 +36,6 @@
     <p> {{livre?.description}}</p>
     <ion-button class="but1" *ngIf="livre?.format==='AudioBook'" routerLink="/audiolecteur/{{livre?.idLivre}}">Lire </ion-button>
     <ion-button class="but1" *ngIf="livre?.format!=='AudioBook'" routerLink="/ebookvue/{{livre?.idLivre}}">Lire </ion-button>
-    <ion-button class="but1" style="width: 90px; " *ngIf="livre?.prix <= 0">Télécharger</ion-button>
     <ion-button class="but1" *ngIf="livre?.prix > 0">Acheter</ion-button>
     <ion-button class="but1" (click)="close()">Fermer</ion-button>
     <!-- <a href="" style="padding: 5%;"> <ion-icon name="share-social-outline"></ion-icon></a>

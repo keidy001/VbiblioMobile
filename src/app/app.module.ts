@@ -11,8 +11,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PdfviewerPageModule } from './pdfviewer/pdfviewer.module';
 import { Media } from '@ionic-native/media/ngx';
+
 //import { FileOpener} from '@ionic-native/file-opener/ngx';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AwesomeCordovaNativePlugin } from '@awesome-cordova-plugins/core';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

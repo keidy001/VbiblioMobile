@@ -1,9 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>library</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-menu-button menu="main-menu"></ion-menu-button>
+  </ion-buttons>
+  <ion-title class="ion-text-center">Librairies </ion-title>
+  <ion-buttons slot="end" style="margin-right:5%;" routerLink="/profile">
+    <ion-icon slot="icon-only" name="person-circle" ></ion-icon>
+  </ion-buttons>
+</ion-toolbar>
 
-<ion-content>
+<div >
+  <ion-row  >
+    <ion-col size="12" style="background-color:rgb(255, 255, 255); padding-bottom: 5%;">
+      <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
 
+            <img src="../../assets/Images/ebook.jpg" style="height: 120px;" width="100%">
+            <h4 class="slide-text" style="text-align:center ">Les Meilleurs librairies </h4>
+
+      </ion-col>
+    </ion-row>
+    <!-- <form>
+      <div style="margin: 0% 5%;">Rechercher : <input style="border:solid 1px; width: 50%; height: 20px; border-radius: 50px; margin-left: 5%;"></div>
+    </form> -->
+
+  </div>
+<ion-content [fullscreen]="true" scrollbar-y-none style="background-color: white;">
+  <ion-grid>
+    <ion-row >
+        <ion-col size="6"  *ngFor="let lib of librairy | filter:filterTerm" class="justify-content-center">
+
+          <ion-card text-center  (click)="detailLivre(lib.idLivre)"  routerLink="/livre/Ebook" class="library" >
+            <h4  style="text-align: center;text-decoration: #6A9BFF underline; color: rgb(0, 0, 0); font-weight: 400;">{{lib.nom}}</h4>
+            <h6  style="text-align: center; color: rgb(0, 0, 0); font-weight: 400;"><ion-icon color="primary" name='location-outline'></ion-icon> {{lib.adresse}}</h6>
+            <h6  style="text-align: center; color: rgb(0, 0, 0); font-weight: 400;"><ion-icon color="primary" name="call-outline"></ion-icon> {{lib.telephone}}</h6>
+          </ion-card>
+        </ion-col>
+  </ion-row>
+  </ion-grid>
 </ion-content>

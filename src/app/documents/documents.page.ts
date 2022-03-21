@@ -32,10 +32,13 @@ export class DocumentsPage implements OnInit {
   }
 
   segmentChange( event){
-    this.type = event.detail.value; 
+    this.type = event.detail.value;
     console.log( event.detail.value);
-    
-  }
 
+  }
+  detailarticle(){
+
+
+  }
 
 }

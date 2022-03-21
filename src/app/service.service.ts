@@ -11,7 +11,7 @@ export class ServiceService {
   // livrefile='https://virtualbiblio.herokuapp.com/api/livre/livre';
   url='http://localhost:8080/api';
   img='http://localhost:8080/api/livre/photo/';
-  audiofile='http://localhost:8080/api/api/livre/audio';
+  audiofile='http://localhost:8080/api/livre/audio';
   livrefile='http://localhost:8080/api/livre/livre';
   constructor(private http: HttpClient) { }
 
@@ -62,6 +62,16 @@ getUser(id){
 getDocument(id){
   this.http.get(this.url+'/documents/lister');
 }
+
+getAllLibrairy(){
+  return this.http.get(this.url+'/librairy/lister');
+}
+
+getLivreByLibrairy(id: any){
+  return this.http.get(this.url+'/livre/livreByLibrairy/'+id);
+}
+
+
 // Get All Category not delleted
 getAllcategory(state: boolean){
   return this.http.get(this.url+'/category/byStatus/'+state);

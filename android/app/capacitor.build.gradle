@@ -16,6 +16,7 @@ dependencies {
     implementation project(':capacitor-splash-screen')
     implementation project(':capacitor-status-bar')
     implementation "androidx.appcompat:appcompat:1.0.0"
+    implementation "com.stripe:stripe-android:4.1.2"
 }
 
 

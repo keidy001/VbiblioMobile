@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, ModalController, PopoverController } from '@ionic/angular';
+import { ChoixPaymentPage } from '../choix-payment/choix-payment.page';
 import { LivrePage } from '../livre/livre.page';
 import { ServiceService } from '../service.service';
 
@@ -27,7 +28,6 @@ export class DetailLivrePage implements OnInit {
   ngOnInit() {
     this.photo =this.service.img;
     this.detailLivre()
-    console.log("test for id "+ this.livre )
   }
   detailLivre() {
     this.service.livreById(this.idLivre).subscribe((data:any)=>{
@@ -37,19 +37,20 @@ export class DetailLivrePage implements OnInit {
 
   close(){
     this.modalCtrl.dismiss({
-      
+
   });
   }
-   async rate(idLivre){
+   async choix(idLivre){
 
       const modal = await this.popCtrl.create({
-        component: DetailLivrePage,
+        component: ChoixPaymentPage,
         cssClass:'popoverCss',
         componentProps: {
           idLivre: idLivre,
         },
       });
       return modal.present();
-    
+
   }
-}
+
+  }

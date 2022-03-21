@@ -11,37 +11,38 @@
   <form [formGroup]="ionicForm" (ngSubmit)="inscription()" novalidate>
 
       <ion-item>
-        <ion-input class="input"  type="text" formControlName="nom" placeholder="Votre nom" required></ion-input>
+        <ion-input class="input"  type="text" formControlName="nom" placeholder="Nom et Prénom" required></ion-input>
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.nom.errors?.required">
-        Ce champ est obligatoire.
+        <small>LE nom obligatoire.</small>
       </span>
       <ion-item>
         <ion-input  type="email" formControlName="email" placeholder=" Email" required></ion-input>
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
-        Ce champ est obligatoire.
+        <small>Email obligatoire.</small>
       </span>
       <ion-item>
         <ion-input type="text" formControlName="login" placeholder="Nom d'utilisateur" required></ion-input>
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.login.errors?.required">
-        Ce champ est obligatoire.
+        <small>Login obligatoire.</small>
       </span>
-      <ion-item> 
-        <ion-input  type="password" formControlName="password" placeholder="Mot de passe" required></ion-input>
+      <ion-item>
+        <ion-input  type="password" formControlName="password" placeholder="Mot de passe (8 carracter min)" required></ion-input>
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required"  >
-        Ce champ est obligatoire.
+        <small>Mot de passe obligatoire.</small>
       </span>
       <ion-item>
         <ion-input  type="password" formControlName="confirmPassword" placeholder="Confirmer le mot de passe" required></ion-input>
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.confirmPassword.errors?.required">
-        Ce champ est obligatoire.
+        <small>Confirmation de Mot de passe obligatoire.</small>
       </span>
       <br>
-      <ion-button expand="block" type="submit" shape="round">S'inscrire</ion-button>
+
+      <ion-button expand="block" class="ion-text-center"  type="submit" shape="round" style="text-transform: initial;">S'inscrire</ion-button>
 
   </form>
 

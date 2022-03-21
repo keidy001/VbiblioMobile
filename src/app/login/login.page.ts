@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { ServiceService } from '../service.service';
@@ -9,13 +10,13 @@ import { ServiceService } from '../service.service';
 })
 export class LoginPage implements OnInit {
 loginInfo: any;
-prenom : any;
-email : any;
-identifiant:any;
-password : any;
+prenom: any;
+email: any;
+identifiant: any;
+password: any;
   constructor(
-    private service:ServiceService,
-    private toast :ToastController
+    private service: ServiceService,
+    private toast: ToastController
   ) { }
 
   ngOnInit() {
@@ -24,14 +25,14 @@ password : any;
   login(){
     console.log(this.identifiant);
     console.log(this.password);
-    
+
     this.service.login(this.identifiant,this.password).subscribe((res)=>{
       if(res){
 
         console.log(res);
         this.loginInfo = res;
-        let loginStatus = true
-        location.replace("/home");
+        const loginStatus = true;
+        location.replace('/home');
         localStorage.setItem('isLogin', JSON.stringify(this.loginInfo));
         localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
       }else{
@@ -39,7 +40,10 @@ password : any;
       this.presentToast();
     }
   },
-  (err) => { this.errorServer();}
+  (error: HttpErrorResponse) => {
+    const err = error;
+    console.error('Here is your error: ' + err);
+  }
   );
 
 }

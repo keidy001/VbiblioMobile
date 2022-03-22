@@ -14,23 +14,23 @@ export class DetailLivrePage implements OnInit {
   @Input() idLivre: number;
 
   livre: any;
-  photo:any;
+  photo: any;
   constructor(
     private service: ServiceService,
     private route: ActivatedRoute,
     public alert: AlertController,
     private router: Router,
-    private livreTs:LivrePage,
-    private popCtrl:PopoverController,
+    private livreTs: LivrePage,
+    private popCtrl: PopoverController,
     public modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
     this.photo =this.service.img;
-    this.detailLivre()
+    this.detailLivre();
   }
   detailLivre() {
-    this.service.livreById(this.idLivre).subscribe((data:any)=>{
+    this.service.livreById(this.idLivre).subscribe((data: any)=>{
       this.livre = data;
       console.log('Detail'+ JSON.stringify(this.livre));
     });}
@@ -46,11 +46,13 @@ export class DetailLivrePage implements OnInit {
         component: ChoixPaymentPage,
         cssClass:'popoverCss',
         componentProps: {
-          idLivre: idLivre,
+          idLivre,
         },
       });
       return modal.present();
 
   }
+
+  rate(idLIvre: number){}
 
   }

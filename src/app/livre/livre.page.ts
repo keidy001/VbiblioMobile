@@ -23,8 +23,23 @@ export class LivrePage implements OnInit {
   format: any;
   idLivre: any;
   slideImg: any;
-  filterTerm:any; 
-  category:any;
+  filterTerm: any;
+  category: any;
+
+  slideOptsTwo = {
+    initialSlide: 1,
+    slidesPerView: 2.2,
+    spaceBetween: 2,
+    // speed:400,
+    //loop: true,
+    //centeredSlides: true,
+    // autoplay:{
+    //   delay:2000,
+    // }
+
+  };
+
+
   constructor(
     private service: ServiceService,
     private route: ActivatedRoute,
@@ -34,14 +49,8 @@ export class LivrePage implements OnInit {
     private modalctrl: ModalController
 
   ) {}
-  slideOptsTwo = {
-    initialSlide: 1,
-    slidesPerView: 2,
-    loop: true,
-    centeredSlides: true,
-    spaceBetween: 3
-  };
-  SlideDidChange(object, slideView) {
+
+  slideDidChange(object, slideView) {
     this.checkIfNavDisabled(object, slideView);
   }
   checkIfNavDisabled(object, slideView) {
@@ -59,15 +68,18 @@ export class LivrePage implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.slideImg=["cover1.jpg","cover3.jpg","cover.jpg"];
+   // eslint-disable-next-line @angular-eslint/contextual-lifecycle
+   ngOnInit() {
+
+    this.slideImg=['cover1.jpg','cover3.jpg','cover.jpg'];
 
     this.livrebyformat(this.route.snapshot.params.format);
     this.format = this.route.snapshot.params.format;
     this.livrefile = this.service.livrefile;
     this.photo = this.service.img;
-    
     this.allCategory();
+
+
   }
 
   //content of popover
@@ -77,7 +89,7 @@ export class LivrePage implements OnInit {
       component: DetailLivrePage,
       cssClass:'popoverCss',
       componentProps: {
-        idLivre: idLivre,
+        idLivre,
       },
     });
     return modal.present();
@@ -87,13 +99,19 @@ export class LivrePage implements OnInit {
   livrebyformat(format: string) {
     this.service.livreByFormatNotDeleted(format, false).subscribe((data: any) => {
       this.listLivre = data;
-      
-      console.log('content' + JSON.stringify(this.listLivre));
+
+      console.log('Tous les livres ' + JSON.stringify(this.listLivre));
     });
   }
   allCategory(){
     this.service.getAllcategory(false).subscribe((data)=>{
       this.category = data;
-    })
+      console.log('toutes les category '+ JSON.stringify(this.category));
+    });
+  }
+
+  tousLivre(){
+    console.log('ok');
+
   }
 }

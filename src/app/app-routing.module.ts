@@ -89,6 +89,11 @@ const routes: Routes = [
     path: 'choix-payment',
     loadChildren: () => import('./choix-payment/choix-payment.module').then( m => m.ChoixPaymentPageModule)
   },
+  {
+    path: 'listlivre/:format/:id',
+    loadChildren: () => import('./list-livre/list-livre.module').then( m => m.ListLIvrePageModule)
+  },
+
 
 
 

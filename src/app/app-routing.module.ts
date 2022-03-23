@@ -93,6 +93,15 @@ const routes: Routes = [
     path: 'listlivre/:format/:id',
     loadChildren: () => import('./list-livre/list-livre.module').then( m => m.ListLIvrePageModule)
   },
+  {
+    path: 'social-share',
+    loadChildren: () => import('./social-share/social-share.module').then( m => m.SocialSharePageModule)
+  },  {
+    path: 'forgot',
+    loadChildren: () => import('./forgot/forgot.module').then( m => m.ForgotPageModule)
+  },
+
+
 
 
 

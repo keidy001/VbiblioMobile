@@ -11,10 +11,22 @@
   <form [formGroup]="ionicForm" (ngSubmit)="inscription()" novalidate>
 
       <ion-item>
-        <ion-input class="input"  type="text" formControlName="nom" placeholder="Nom et Prénom" required></ion-input>
+        <ion-input class="input"  type="text" formControlName="nom" placeholder="Nom" required></ion-input>
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.nom.errors?.required">
         <small>LE nom obligatoire.</small>
+      </span>
+      <ion-item>
+        <ion-input class="input"  type="text" formControlName="prenom" placeholder="Prénom" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.prenom.errors?.required">
+        <small>LE Prénom obligatoire.</small>
+      </span>
+      <ion-item>
+        <ion-input class="input"  type="number"  formControlName="telephone" placeholder="Téléphone" required></ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.telephone.errors?.required">
+        <small>Numéro de téléphone incorrect.</small>
       </span>
       <ion-item>
         <ion-input  type="email" formControlName="email" placeholder=" Email" required></ion-input>

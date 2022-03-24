@@ -3,20 +3,81 @@ ion-content {
     --ion-background-color: rgb(255, 255, 255) !important;
 }
 
+.div1{
+  background-color: white;
+}
+.div2{
+  width:auto;
+  height:20%;background-color: #6a9bff;
+  border-radius: 0px 0px 30px 30px;
+  justify-content: center;
+}
+ion-content{
 
+  // overwrite inline styles
+--offset-bottom: auto!important;
+--overflow: hidden;
+overflow: auto;
+&::-webkit-scrollbar {
+display: none;
+}
+}
 
 .error{
     color: red;
 }
+.form-section{
+  padding-top: 10%;
+  background-color: white;
+}
 
 
 
-.button{
-    width: 40%;
-    height: 25px;
-    margin-top: 0%;
-    margin-left: 30%;
-    font-size: 90%;
-    justify-content: center;
 
+ion-item{
+  //  --border-color:
+    --highlight-color-focued:red;
+    font-size: 12px;
+ion-icon{
+    padding-right: 10px;
+    font-size: 18px;
+}
+ion-input:hover{
+    color: #6a9bff;
+}
+span{
+  font-size: 10px;
+}
+}
+
+
+.logButton{
+
+  text-align: center;
+  .but{
+      --ion-background-color:#6a9bff;
+
+      text-transform: initial;
+  }
+
+}
+.text-tag{
+  margin-top: 40px;
+  text-align: center;
+  span{
+   font-size: 13px;
+   font-weight: normal;
+   color: #3a3a3a;
+  }
+}
+
+.social-btn{
+  text-align: center;
+  ion-button{
+    width: 30px;
+  }
+
+}
+.loginbtn{
+  padding-right: 3%;
 }

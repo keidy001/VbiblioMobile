@@ -3,24 +3,25 @@
 </ion-header>
 
 <ion-content>
-
-  <div>
-    <img src="../../assets/Images/back.png">
-  </div>
-
+<div class="div1">
+  <div class="div2">
+    <img src="../../assets/Images/Virtual_biblio2.png" style="width: 300px; height: auto;padding: 20%;">
+ </div>
+</div>
+ <div class="form-section">
   <form [formGroup]="ionicForm" (ngSubmit)="inscription()" novalidate>
 
       <ion-item>
         <ion-input class="input"  type="text" formControlName="nom" placeholder="Nom" required></ion-input>
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.nom.errors?.required">
-        <small>LE nom obligatoire.</small>
+        <small>Nom incorrect.</small>
       </span>
       <ion-item>
         <ion-input class="input"  type="text" formControlName="prenom" placeholder="Prénom" required></ion-input>
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.prenom.errors?.required">
-        <small>LE Prénom obligatoire.</small>
+        <small>Prénom incorrect.</small>
       </span>
       <ion-item>
         <ion-input class="input"  type="number"  formControlName="telephone" placeholder="Téléphone" required></ion-input>
@@ -32,7 +33,7 @@
         <ion-input  type="email" formControlName="email" placeholder=" Email" required></ion-input>
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
-        <small>Email obligatoire.</small>
+        <small>Email incorrect.</small>
       </span>
       <ion-item>
         <ion-input type="text" formControlName="login" placeholder="Nom d'utilisateur" required></ion-input>
@@ -44,7 +45,7 @@
         <ion-input  type="password" formControlName="password" placeholder="Mot de passe (8 carracter min)" required></ion-input>
       </ion-item>
       <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required"  >
-        <small>Mot de passe obligatoire.</small>
+        <small>Mot de passe incorrect.</small>
       </span>
       <ion-item>
         <ion-input  type="password" formControlName="confirmPassword" placeholder="Confirmer le mot de passe" required></ion-input>
@@ -53,9 +54,20 @@
         <small>Confirmation de Mot de passe obligatoire.</small>
       </span>
       <br>
-
-      <ion-button expand="block" class="ion-text-center"  type="submit" shape="round" style="text-transform: initial;">S'inscrire</ion-button>
-
+      <div class="logButton">
+      <ion-button  type="submit" shape="round" class="but">S'inscrire</ion-button>
+    </div>
+    <div class="text-tag">
+      <span>Continuer avec</span>
+    </div>
+    <div class="social-btn">
+        <ion-button fill="clear" class="loginbtn ion-no-padding">
+          <ion-img src="../../assets/icon/facebook.png "></ion-img>
+        </ion-button>
+        <ion-button fill="clear" class="loginbtn ion-no-padding">
+          <ion-img src="../../assets/icon/google.png "></ion-img>
+        </ion-button>
+    </div>
   </form>
-
+ </div>
 </ion-content>

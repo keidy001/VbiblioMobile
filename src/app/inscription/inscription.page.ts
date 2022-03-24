@@ -44,12 +44,12 @@ export class InscriptionPage implements OnInit {
     inscription(){
       this.isSubmitted = true;
       if (!this.ionicForm.valid) {
-        if(this.ionicForm.value.password!=this.ionicForm.value.confirmPassword){
-          this.presentToast()
+        if(this.ionicForm.value.password!==this.ionicForm.value.confirmPassword){
+          this.presentToast();
         }else{
 
         console.log('Please provide all the required values!');
-        this.errorControl;
+        this.allrequire();
         return false;
         }
 
@@ -57,8 +57,9 @@ export class InscriptionPage implements OnInit {
         this.userService.add(this.ionicForm.value).subscribe((data)=>{
           this.router.navigateByUrl('/login');
           this.successToast();
-        })
-        console.log(this.ionicForm.value)
+        });
+        console.log(this.ionicForm.value);
+        this.errorServer();
       }
     }
 
@@ -76,6 +77,26 @@ export class InscriptionPage implements OnInit {
     async presentToast() {
       const toast = await this.toast.create({
         message: 'Mot de passe non identique',
+        duration: 2000,
+        position: 'middle',
+        color:'danger'
+      });
+      toast.present();
+    }
+
+    async errorServer() {
+      const toast = await this.toast.create({
+        message: 'Oups! Erreur de connexion veillez réessayez ultérieurement',
+        duration: 3000,
+        position: 'middle',
+        color:'danger',
+
+      });
+      toast.present();
+    }
+    async allrequire() {
+      const toast = await this.toast.create({
+        message: 'Tous les champs doivent être correctement remplis',
         duration: 2000,
         position: 'middle',
         color:'danger'

@@ -16,9 +16,9 @@ export class InscriptionPage implements OnInit {
   ionicForm: FormGroup;
   isSubmitted = false;
   constructor(public formBuilder: FormBuilder,
-    private toast :ToastController,
-    public userService :ServiceService,
-    public router :Router,
+    private toast: ToastController,
+    public userService: ServiceService,
+    public router: Router,
 
     ) { }
 
@@ -27,14 +27,17 @@ export class InscriptionPage implements OnInit {
 
       this.ionicForm = this.formBuilder.group({
         nom: ['', [Validators.required, Validators.minLength(2)]],
+        prenom:['',[Validators.required, Validators.minLength(2)]],
+        telephone:['',[Validators.required,Validators.pattern('[5-9][0-9]{7}')]],
         email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
         password: ['', [Validators.required, Validators.minLength(8)]],
         login: ['',Validators.minLength(3)],
         confirmPassword: ['', [Validators.required]]
 
-      })
+      });
     }
-    get errorControl() {
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+   get errorControl() {
       return this.ionicForm.controls;
     }
 

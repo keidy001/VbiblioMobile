@@ -31,8 +31,8 @@
         <ion-icon name="star" class="rateIcon" ></ion-icon>
       </span>
     </ion-col>
-   <a class="btn" href="" style="padding: 5%;zoom: 1.2;"> <ion-icon name="share-social-outline"></ion-icon></a>
-   <a (click)="rate(livre.idLivre)"  style="padding: 5%; zoom: 1.2;"> <ion-icon name="add-circle-outline"></ion-icon></a>
+   <a class="btn" (click)="showShareOptions(livre.idLivre)" style="padding: 5%;zoom: 1.2;"> <ion-icon name="share-social-outline"></ion-icon></a>
+   <a (click)="rate(livre.idLivre)"  style="padding: 5%; zoom: 1.2;"> <ion-icon name="thumbs-up-outline"></ion-icon></a>
   </ion-row>
   <h2 style="text-align: left; margin-top: 6%;  font-weight: 400; font-size: 14px; "><b>Description : </b></h2>
   <hr color="#6A9BFF" width="20%" style="margin-inline-start: 2%; height: 3px;">

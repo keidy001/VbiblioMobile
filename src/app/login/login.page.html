@@ -4,24 +4,34 @@
 <ion-content  >
 
 
-    <img src="../../assets/Images/backIns.png">
-
-<form action="" class="form" >
+   
+    <div style="width:auto; height:40%;background-color: #6a9bff; border-radius: 0px 0px 30px 30px; justify-content: center;">
+       <img src="../../assets/Images/Virtual_biblio2.png" style="width: 300px; height: auto;padding: 20%;">
+    </div>
+    <div class="form-section">
+    <form action="" class="form" >
    <ion-item>
-    <ion-input placeholder="Identifiant" name="identifiant" type="email" [(ngModel)]="identifiant"></ion-input>
+     <ion-input placeholder="Identifiant" name="identifiant" type="email" [(ngModel)]="identifiant">
+      <ion-icon name="person-outline"></ion-icon>
+
+    </ion-input>
   </ion-item>
     <ion-item>
-    <ion-input placeholder="Mot de passe" name="password" type="password" [(ngModel)]="password"></ion-input>
+      <ion-input placeholder="Mot de passe" name="password" type="password" [(ngModel)]="password">
+      <ion-icon name="lock-closed-outline"></ion-icon>
+
+    </ion-input>
    </ion-item>
-    <div class="button">
-        <ion-button   (click)="login()" shape="round" style="text-transform: initial;">Se connecter</ion-button>
+   <div class="forgotDiv" >
+     <ion-button fill="clear" class="ion-no-padding">Mot de passe oublié ?</ion-button>
     </div>
-  <div class="forgotDiv" >
-     <a class="forgot" href="password" type="" >Mot de passe oublier</a>
+    <div class="logButton">
+        <ion-button   (click)="login()" shape="round" class="but">Se connecter</ion-button>
     </div>
 
-  <div class="buttonL">
-    <ion-button type="text" routerLink="/inscription" shape="round" style="text-transform: initial;">Creer compte</ion-button>
+  <div class="ion-footer">
+   <span>Vous n'avz pas de compte?</span> <button class="ion-no-padding" routerLink="/inscription" style="text-transform: initial;">Créer un compte</button>
   </div>
 </form>
+</div>
 </ion-content>

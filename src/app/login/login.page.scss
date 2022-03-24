@@ -1,39 +1,65 @@
 
 ion-content {
-    background-color: #fff;
+   --ion-background-color: #ffffff;
 }
 
 
 
 .forgotDiv{
-    margin: 6%;
-    margin-right: 0%;
-    text-align: center;
+    width: auto;
+    text-align: right;
+    ion-button{
+        font-size: 12px;
+        text-transform: initial;
+        text-align: right;
+    }
 }
 .forgot{
     color: black; 
     font-size: 12px;
     text-decoration: none;
 }
-.button{
-    width: 90%;
-    height: 25px;
-    margin: auto;
-    margin-top: 4%;
-    margin-left: 5%;
-    font-size: 90%;
-    justify-content: center;
+ion-item{
+  //  --border-color:
+    --highlight-color-focued:red;
+    font-size: 12px;
+ion-icon{
+    padding-right: 10px;
+    font-size: 18px;
 }
-.buttonL{
-    width: 60%;
-    height: 25px;
-    margin: auto;
-    margin-top: 4%;
-    margin-left: 20%;
-    font-size: 90%;
-    justify-content: center;
+ion-input:hover{
+    color: #6a9bff;
 }
 
+}
+
+.form-section{
+    margin-top: 10%;
+}
 .contentButton{
     margin-top: 4px;
+}
+.logButton{
+    text-align: center;
+    .but{
+        --ion-background-color:#6a9bff;
+
+        text-transform: initial;
+    }
+}
+
+.ion-footer{
+    margin-top: 10%;
+    span{
+        padding: 3px;
+        font-size: 12px;
+        font-weight: 200px;
+    }
+    button{
+        background-color:transparent;
+        padding-left: 3px;
+        font-size: 14px;
+        font-weight: 600px;
+        color:#6a9bff;
+    }
 }

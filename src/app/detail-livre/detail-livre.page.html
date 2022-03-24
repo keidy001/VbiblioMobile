@@ -40,19 +40,11 @@
   <p > {{livre?.description}}</p>
     <ion-button class="but1" *ngIf="livre?.format==='AudioBook'" routerLink="/audiolecteur/{{livre?.idLivre}}">Lire </ion-button>
     <ion-button class="but1" *ngIf="livre?.format!=='AudioBook'" routerLink="/ebookvue/{{livre?.idLivre}}">Lire </ion-button>
-<<<<<<< HEAD
-    <ion-button class="but1" *ngIf="livre?.prix > 0">Acheter</ion-button>
-    <ion-button class="but1" (click)="close()">Fermer</ion-button>
-    <!-- <a href="" style="padding: 5%;"> <ion-icon name="share-social-outline"></ion-icon></a>
-    <a (click)="rate(livre.idLivre)"  style="padding: 5%;"> <ion-icon name="add-circle-outline"></ion-icon></a>
-      -->
-=======
     <ion-button class="but1" style="width: 90px; " *ngIf="livre?.prix <= 0">Télécharger</ion-button>
     <ion-button class="but1" *ngIf="livre?.prix > 0" (click)="choix(idLivre)" >Acheter</ion-button>
     <ion-button class="but1" (click)="close()">Retour</ion-button>
     <!-- <a href="" style="padding: 5%;"> <ion-icon name="share-social-outline"></ion-icon></a> -->
     <!-- <a (click)="rate(livre.idLivre)"  style="padding: 5%;"> <ion-icon name="add-circle-outline"></ion-icon></a> -->
 
->>>>>>> 466976130ad1184c87a56dc21db4c4423f6a0c2b
   </div>
 

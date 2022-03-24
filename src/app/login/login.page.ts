@@ -43,6 +43,7 @@ password: any;
   (error: HttpErrorResponse) => {
     const err = error;
     console.error('Here is your error: ' + err);
+    this.errorServer();
   }
   );
 

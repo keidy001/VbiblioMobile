@@ -28,7 +28,7 @@ export class LivrePage implements OnInit {
 
   slideOptsTwo = {
     initialSlide: 1,
-    slidesPerView: 2.2,
+    slidesPerView: 2,
     spaceBetween: 2,
     // speed:400,
     //loop: true,

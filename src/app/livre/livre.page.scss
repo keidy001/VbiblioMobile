@@ -80,5 +80,35 @@ ion-title{
   height: 150px;
   background-color: white;
   border: solid 1px;
-  width: 100%;
+  border-color: rgb(212, 212, 212);
+
+}
+
+.cat{
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.livreCard{
+  // background-image: url('{{photo}}{{livre.idLivre}}');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+}
+
+.imgLivre{
+  width: auto; height: 80%;
+}
+.livrePrix{
+ text-align: center;
+  margin-top: 10px;
+  color: #000;
+  font-weight: 400;
+  font-size: 10px;
+  .ion-badge{
+    width: 90%;
+    opacity: 0.9;
+      color:#6A9BFF;
+      font-size: 8px;
+  }
 }

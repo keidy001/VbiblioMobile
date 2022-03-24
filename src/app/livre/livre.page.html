@@ -64,14 +64,14 @@
 
 
       <div *ngFor="let cat of category" style="margin-bottom: 3%;">
-        <div> <b style="margin-left: 2%;"> {{cat.category}} </b></div>
+        <div class="cat">  {{cat.category}}</div>
         <hr color="#6A9BFF" width="20%" style="margin-inline-start: 2%; height: 3px;">
         <ion-slides  [options]="slideOptsTwo">
         <ion-slide *ngFor="let livre of listLivre |filter: cat.category |filter: filterTerm">
-          <ion-card  class="ion-card" (click)="detailLivre(livre.idLivre)" style="background-image: url('{{photo}}{{livre.idLivre}}'); background-size: contain; background-repeat: no-repeat;background-position-x: center;">
-            <!-- <img src="{{photo}}{{livre.idLivre}} " style="width: auto; height: 80%;"> -->
-            <small  style="text-align: center; margin-top: 10px; color: #000; font-weight: 400; font-size: 10px; "><ion-badge *ngIf="livre.prix >0" style="width: 90%; opacity: 0.9;"  color="primary" mode="ios">{{livre.prix | currency:" ":true:"1.0"}} fcfa</ion-badge></small>
-            <small *ngIf="livre.prix ===0" style="text-align: center; margin-top: 10px; color: #000; font-weight: 400; font-size: 10px; opacity: 0.8;"><ion-badge color="primary" mode="ios">Gratuit</ion-badge></small>
+          <ion-card  class="ion-card livreCard" (click)="detailLivre(livre.idLivre)">
+            <img src="{{photo}}{{livre.idLivre}} " class="imgLivre">
+            <small  class="livrePrix" ><ion-badge *ngIf="livre.prix >0" mode="ios">{{livre.prix | currency:" ":true:"1.0"}} fcfa</ion-badge></small>
+            <small class="livrePrix" *ngIf="livre.prix ===0"><ion-badge mode="ios">Gratuit</ion-badge></small>
            <br>
             <div style="margin: auto; margin-top: 100%; background-color: #000;opacity: 0.8; width: 90%; ">
           <span *ngIf="livre?.note >=1" >

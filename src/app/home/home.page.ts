@@ -19,7 +19,8 @@ export class HomePage {
   slideOptsOne = {
     initialSlide: 0,
     slidesPerView: 1,
-    autoplay: true
+    autoplay: true,
+
   };
   constructor(
     private service: ServiceService,
@@ -33,11 +34,11 @@ export class HomePage {
       slidesItems : this.livre,
 
     };
-    
+
   }
 ngOnInit() {
 
-  this.slideImg=["cover1.jpg","cover3.jpg","cover.jpg"];
+  this.slideImg=["vbiblio.png","cover3.jpg","cover.jpg"];
   this.service.listLivre().subscribe((response:any)=>{
     this.livre = response;
   })

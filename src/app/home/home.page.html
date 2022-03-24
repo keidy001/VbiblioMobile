@@ -8,9 +8,10 @@
   </ion-buttons>
 </ion-toolbar>
 <ion-content [fullscreen]="true">
+  <div class="head">
   <ion-grid>
     <ion-row>
-      <ion-col size="12">
+
         <ion-slides pager="false" [options]="slideOptsOne" #slideWithNav
           (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
           <ion-slide *ngFor="let s of slideImg">
@@ -18,16 +19,16 @@
             <span class="slide-text">{{s.id}}</span>
           </ion-slide>
         </ion-slides>
-      </ion-col>
+
     </ion-row>
   </ion-grid>
-
-
+</div>
+<div class="content">
   <div style="margin-top: 1%; text-align: center;">
-    <span style="color: #4481FF; font-size: 16px;"><b>Toutes les Cotégories</b></span>
+    <span style="color: #6A9BFF; font-size: 12px;"><b>Les Différents Catégories</b></span>
 
-  </div>
 
+</div>
   <ion-grid>
     <ion-row class="u">
       <ion-col >
@@ -36,7 +37,7 @@
           <ion-img src="../../assets/Images/ebook1.jpg"
             style="width: 50%; display: block; justify-content: center; margin: auto; padding: auto; margin-top: 10px;">
           </ion-img>
-          <h4 style="text-align: center; margin-top: 10px; color: #000; font-weight: 400; font-size: 14px; ">Ebook</h4>
+          <h4 style="text-align: center; margin-top: 10px; color: #000; font-weight: 600; font-size: 14px; ">Ebook</h4>
         </ion-card>
       </ion-col>
       <ion-col>
@@ -45,7 +46,7 @@
           <ion-img src="../../assets/Images/audio1.png"
             style="width: 50%; display: block; justify-content: center; margin: auto; padding: auto; margin-top: 10px;">
           </ion-img>
-          <h4 style="text-align: center; margin-top: 10px; color: #000; font-weight: 400; font-size: 14px; ">Audio Book
+          <h4 style="text-align: center; margin-top: 10px; color: #000; font-weight: 600; font-size: 14px; ">Audio Book
           </h4>
         </ion-card>
       </ion-col>
@@ -57,7 +58,7 @@
           <ion-img src="../../assets/Images/document1.jpg"
             style="width: 50%; display: block; justify-content: center; margin: auto; padding: auto; margin-top: 10px; ">
           </ion-img>
-          <h4 style="text-align: center; margin-top: 10px; color: #000; font-weight: 400; font-size: 14px; ">Documents
+          <h4 style="text-align: center; margin-top: 10px; color: #000; font-weight: 600; font-size: 14px; ">Documents
           </h4>
         </ion-card>
       </ion-col>
@@ -67,12 +68,12 @@
           <ion-img src="../../assets/Images/book3.jpg"
             style="width: 50%; display: block; justify-content: center; margin: auto; padding: auto; margin-top: 10px;">
           </ion-img>
-          <h4 style="text-align: center; margin-top: 10px; color: #000; font-weight: 400; font-size: 14px; ">Librairie
+          <h4 style="text-align: center; margin-top: 10px; color: #000; font-weight: 600; font-size: 14px; ">Librairie
           </h4>
         </ion-card>
       </ion-col>
     </ion-row>
 
-
   </ion-grid>
+</div >
 </ion-content>

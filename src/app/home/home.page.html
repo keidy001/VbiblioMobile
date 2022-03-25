@@ -8,14 +8,14 @@
   </ion-buttons>
 </ion-toolbar>
 <ion-content [fullscreen]="true">
-  <div class="head">
+  <div >
   <ion-grid>
-    <ion-row>
+    <ion-row >
 
-        <ion-slides pager="false" [options]="slideOptsOne" #slideWithNav
+        <ion-slides class="head" pager="false" [options]="slideOptsOne" #slideWithNav
           (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
           <ion-slide *ngFor="let s of slideImg">
-            <img src="../../assets/Images/{{s}}" style="height: 200px;">
+            <img src="../../assets/Images/{{s}}" style="height:100%;">
             <span class="slide-text">{{s.id}}</span>
           </ion-slide>
         </ion-slides>

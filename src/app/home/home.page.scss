@@ -2,7 +2,7 @@ ion-title{
   text-align: center;
 }
 ion-content{
-  --background: white;
+  --background: rgb(212, 212, 212);
 }
 
 .shadow-native {
@@ -59,12 +59,14 @@ ion-content{
 }
 
 .head{
+  height: 40%;
   background-color: #000000 ;
   margin-top: 1%;
   border-radius: 0px 0px 30px 30px;
 }
 
 .content{
-  background-color: #FFFFFF ;
+  margin-top: 30%;
+  background-color: rgb(212, 212, 212);
 
 }

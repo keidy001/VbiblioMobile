@@ -28,7 +28,7 @@ export class LivrePage implements OnInit {
 
   slideOptsTwo = {
     initialSlide: 1,
-    slidesPerView: 2,
+    slidesPerView: 2.2,
     spaceBetween: 2,
     // speed:400,
     //loop: true,
@@ -71,7 +71,7 @@ export class LivrePage implements OnInit {
    // eslint-disable-next-line @angular-eslint/contextual-lifecycle
    ngOnInit() {
 
-    this.slideImg=['cover1.jpg','cover3.jpg','cover.jpg'];
+    this.slideImg=['cover1.jpg','cover1.jpg','cover1.jpg'];
 
     this.livrebyformat(this.route.snapshot.params.format);
     this.format = this.route.snapshot.params.format;

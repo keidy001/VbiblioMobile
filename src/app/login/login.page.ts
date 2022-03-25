@@ -1,6 +1,7 @@
+import { ForgotPage } from './../forgot/forgot.page';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
+import { ModalController, ToastController, PopoverController } from '@ionic/angular';
 import { ServiceService } from '../service.service';
 
 @Component({
@@ -16,7 +17,8 @@ identifiant: any;
 password: any;
   constructor(
     private service: ServiceService,
-    private toast: ToastController
+    private toast: ToastController,
+    private modalctrl: PopoverController,
   ) { }
 
   ngOnInit() {
@@ -65,6 +67,17 @@ password: any;
             color:'danger'
           });
           toast.present();
+        }
+
+        async forgot() {
+
+          const modal = await this.modalctrl.create({
+            component: ForgotPage,
+            cssClass:'popoverCss',
+            componentProps: {
+            },
+          });
+          return modal.present();
         }
 }
 

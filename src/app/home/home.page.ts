@@ -38,7 +38,7 @@ export class HomePage {
   }
 ngOnInit() {
 
-  this.slideImg=["vbiblio.png","cover3.jpg","cover.jpg"];
+  this.slideImg=["vbiblio.png","vbiblio.png","vbiblio.png"];
   this.service.listLivre().subscribe((response:any)=>{
     this.livre = response;
   })

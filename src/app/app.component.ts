@@ -8,12 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor(
-    public router :Router
-  ) {}
+    public router: Router,
+  ) {
+    this.initializeApp();
+  }
+  initializeApp(){
+    this.router.navigateByUrl('splash-screen');
+  }
 
   logOut(){
     localStorage.removeItem('isLogin');
     localStorage.removeItem('loginStatus');
-    this.router.navigateByUrl('/login')
+    this.router.navigateByUrl('/login');
   }
 }

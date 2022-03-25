@@ -49,7 +49,7 @@ export class InscriptionPage implements OnInit {
         }else{
 
         console.log('Please provide all the required values!');
-        this.allrequire();
+        //this.allrequire();
         return false;
         }
 

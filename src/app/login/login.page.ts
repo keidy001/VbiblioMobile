@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ForgotPage } from './../forgot/forgot.page';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -19,6 +20,7 @@ password: any;
     private service: ServiceService,
     private toast: ToastController,
     private modalctrl: PopoverController,
+    private route :Router
   ) { }
 
   ngOnInit() {
@@ -34,7 +36,7 @@ password: any;
         console.log(res);
         this.loginInfo = res;
         const loginStatus = true;
-        location.replace('/home');
+        this.route.navigateByUrl('/home');
         localStorage.setItem('isLogin', JSON.stringify(this.loginInfo));
         localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
       }else{

@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { FormGroup, FormBuilder, Validators,ValidationErrors } from "@angular/forms";
 import { ToastController } from '@ionic/angular';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-inscription',
@@ -57,15 +58,20 @@ export class InscriptionPage implements OnInit {
         this.userService.add(this.ionicForm.value).subscribe((data)=>{
           this.router.navigateByUrl('/login');
           this.successToast();
-        });
-        console.log(this.ionicForm.value);
-        this.errorServer();
+        },
+        (error: HttpErrorResponse) => {
+          const err = error;
+          console.error('Here is your error: ' + err);
+          this.errorServer();
+        }
+        );
+
       }
     }
 
     async successToast() {
       const toast = await this.toast.create({
-        message: 'Compte créer avec succès, Connectez-vous avec votre login et mot de passe',
+        message: 'Compte créer avec succès, Consulter votre email pour activer votre compte',
         duration: 4000,
         position: 'middle',
         color:'success'

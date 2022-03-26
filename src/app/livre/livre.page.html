@@ -1,5 +1,6 @@
 
 <!-- home.page.html -->
+
 <ion-toolbar color="primary">
   <ion-buttons slot="start">
     <ion-menu-button menu="main-menu"></ion-menu-button>
@@ -9,13 +10,15 @@
     <ion-icon slot="icon-only" name="person-circle" ></ion-icon>
   </ion-buttons>
 </ion-toolbar>
-<div style="background-color:white; padding-bottom: 5%;">
+<ion-searchbar style="background-color:rgb(188, 200, 255) ;" placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+
+<div style="background-color:rgb(188, 200, 255); padding-bottom: 5%;">
     <ion-row >
       <ion-col size="12">
         <ion-slides pager="false" >
           <ion-slide *ngFor="let s of slideImg">
-            <img src="../../assets/Images/{{s}}" style="height: 200px;">
-            <span class="slide-text">{{format}}</span>
+            <img src="../../assets/Images/{{s.img}}" style="height: 200px;">
+            <div style="background-color: rgb(0, 0, 0); padding:5% ; opacity: 0.7;" class="slide-text"><span style="font-size: 12px;">{{s.text}}</span></div>
           </ion-slide>
         </ion-slides>
       </ion-col>
@@ -23,10 +26,9 @@
     <!-- <form>
       <div style="margin: 0% 5%;">Rechercher : <input style="border:solid 1px; width: 50%; height: 20px; border-radius: 50px; margin-left: 5%;"></div>
     </form> -->
-    <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
 
   </div>
-  <ion-content [fullscreen]="true" scrollbar-y-none style="background-color: white;">
+  <ion-content [fullscreen]="true" scrollbar-y-none style="background-color: rgb(188, 200, 255);">
 
 
 <!-- <ion-list-header style="position: fixed;">
@@ -93,6 +95,6 @@
         </ion-card>
         </ion-slide>
       </ion-slides>
-      <div style="color: #6A9BFF; float:right;  margin-right: 3%;" routerLink="/listlivre/{{format}}/{{cat.idCategory}}"><small >Voir plus</small></div>
+      <div style="color: #000000; float:right;  margin-right: 3%;" routerLink="/listlivre/{{format}}/{{cat.idCategory}}"><small >Voir plus</small></div>
     </div>
 </ion-content>

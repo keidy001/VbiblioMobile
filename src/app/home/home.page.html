@@ -15,7 +15,7 @@
         <ion-slides class="head" pager="false" [options]="slideOptsOne" #slideWithNav
           (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
           <ion-slide *ngFor="let s of slideImg">
-            <img src="../../assets/Images/{{s}}" style="height:100%;">
+            <img src="../../assets/Images/{{s}}"  >
             <span class="slide-text">{{s.id}}</span>
           </ion-slide>
         </ion-slides>
@@ -23,9 +23,9 @@
     </ion-row>
   </ion-grid>
 </div>
-<div class="content">
-  <div style="margin-top: 1%; text-align: center;">
-    <span style="color: #6A9BFF; font-size: 12px;"><b>Les Différents Catégories</b></span>
+<div class="content" >
+  <div style="margin-top: 1%; text-align: center; background-color: white; border-radius: 50px;">
+    <span style="color: #030303; font-size: 12px;"><b>Une variéte de Catégories</b></span>
 
 
 </div>

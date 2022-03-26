@@ -2,7 +2,7 @@ ion-title{
   text-align: center;
 }
 ion-content{
-  --background: rgb(212, 212, 212);
+  --background: rgb(188, 200, 255);
 }
 
 .shadow-native {
@@ -20,37 +20,7 @@ ion-content{
   cursor: pointer;
 
 }
-// Slider Style START
-.custon-nav{
-  height: 48px;
-  width: 20px;
-  cursor: pointer;
 
-  vertical-align: middle;
-  text-align: left;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.prev-icon-custom{
-  background: url(https://freakyjolly.com/demo/jquery/OwlCarousel2/nav-icon.png) no-repeat scroll 0px 0px;
-}
-.prev-icon-custom.disabled{
-  opacity: 0.4;
-  cursor: default;
-}
-.next-icon-custom{
-  background: url(https://freakyjolly.com/demo/jquery/OwlCarousel2/nav-icon.png) no-repeat scroll -32px 0px;
-}
-.next-icon-custom.disabled{
-  opacity: 0.4;
-  cursor: default;
-}
-.slider-nav{
-  ion-icon{
-      height: 100%;
-  }
-}
 
 .slide-text{
   position: absolute;
@@ -59,14 +29,14 @@ ion-content{
 }
 
 .head{
-  height: 40%;
+
   background-color: #000000 ;
   margin-top: 1%;
-  border-radius: 0px 0px 30px 30px;
+  //border-radius: 0px 0px 30px 30px;
 }
 
 .content{
-  margin-top: 30%;
-  background-color: rgb(212, 212, 212);
+  margin-top: 10%;
+  background-color: rgb(188, 200, 255);
 
 }

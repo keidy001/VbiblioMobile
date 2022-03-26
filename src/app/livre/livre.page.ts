@@ -71,7 +71,21 @@ export class LivrePage implements OnInit {
    // eslint-disable-next-line @angular-eslint/contextual-lifecycle
    ngOnInit() {
 
-    this.slideImg=['cover1.jpg','cover1.jpg','cover1.jpg'];
+    this.slideImg=[
+      {
+        img:'ncov0.jpg',
+        text:'Des livre en abondance',
+      },
+      {
+        img:'ncov1.jpg',
+        text:'Découvrer facilement des meilleurs livre',
+      },
+      {
+        img:'cover4.png',
+        text:'lire partout où vous voulez',
+      },
+
+    ];
 
     this.livrebyformat(this.route.snapshot.params.format);
     this.format = this.route.snapshot.params.format;

@@ -1,10 +1,12 @@
+import { OptionpopComponent } from './../optionpop/optionpop.component';
+import { OptionpopPage } from './../optionpop/optionpop.page';
 import { ActivatedRoute } from '@angular/router';
 import { ServiceService } from './../service.service';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { Component, OnInit } from '@angular/core';
 import { DocumentViewer, DocumentViewerOptions } from '@awesome-cordova-plugins/document-viewer/ngx';
-import { NavController } from '@ionic/angular';
+import { NavController, ModalController, PopoverController } from '@ionic/angular';
 import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @Component({
@@ -18,65 +20,59 @@ export class EbookvuePage implements OnInit {
 title = 'Test';
 public page = 2 ;
 public pageLabel!: string;
-
-  livre:any;
-  options : InAppBrowserOptions = {
-    location : 'yes',//Or 'no'
-    hidden : 'no', //Or  'yes'
-    clearcache : 'yes',
-    clearsessioncache : 'yes',
-    zoom : 'yes',//Android only ,shows browser zoom controls
-    hardwareback : 'yes',
-    mediaPlaybackRequiresUserAction : 'yes',
-    shouldPauseOnSuspend : 'yes', //Android only
-    closebuttoncaption : 'Close', //iOS only
-    disallowoverscroll : 'no', //iOS only
-    toolbar : 'yes', //iOS only
-    enableViewportScale : 'yes', //iOS only
-    allowInlineMediaPlayback : 'no',//iOS only
-    presentationstyle : 'pagesheet',//iOS only
-    fullscreen : 'yes',//Windows only
-    toolbarcolor:'blue',
-};
-
-
+  idLivre: number;
+  livre: any;
+  pdfSrc: any;
 
   constructor(
-    private document: DocumentViewer,
-    private navCtrl :NavController,
-    private file :File,
-    private transfer : FileTransfer,
-    private iab: InAppBrowser,
-    private service : ServiceService,
-    private route :ActivatedRoute,
+
+    private     document:   DocumentViewer,
+    private     navCtrl:    NavController,
+    private     file:       File,
+    private     transfer:   FileTransfer,
+    private     service:    ServiceService,
+    private     route:      ActivatedRoute,
+    private     modalCtrl:  ModalController,
+    private     popover:    PopoverController,
+
     ) {
      }
 
 
 
   ngOnInit() {
-   this.read();
 
+     this.srcpdf(this.route.snapshot.params.idLivre);
+
+     this.pdfSrc = this.service.livrefile+'/'+this.route.snapshot.params.idLivre;
+
+     this.modalCtrl.dismiss();
   }
 
-read1(){
-  let target = "_self";
+  srcpdf(id: number){
 
-  this.iab.create('assets/test.pdf',target,this.options).show();
-  // let option : DocumentViewerOptions ={
-  //   title: ''
-  // };
-  // this.document.viewDocument('assets/test.pdf', 'application/pdf', this.options)
+    this.service.livreById(id).subscribe((data)=>{
 
+    this.livre = data;
+
+    console.log(this.livre);
+
+  });
 }
 
+async option(tr: any) {
 
-public read(){
-  let target = "_self";
-  this.iab.create(this.service.livrefile+"/"+this.route.snapshot.params["idLivre"],target,this.options).show();
-  console.log(this.service.livrefile+"/"+this.route.snapshot.params["idLivre"]);
+  const pop = await this.popover.create({
+    component: OptionpopPage,
+    trigger:tr,
+    cssClass:'popOption',
+    side:'start',
 
+    componentProps: {
+
+    },
+  });
+  return pop.present();
 }
-
 
 }

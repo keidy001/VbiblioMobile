@@ -11,15 +11,49 @@
 <ion-content >
   <div class="img_box" style="width: 80%; margin: auto;padding: 5%;" >
 
-    <img src="{{img}}" >
+    <img src="{{img}}" style="width: 40%; margin-left: 30%;"  >
   </div>
   <h6 style="color: rgb(0, 0, 0); text-align: center;">Titre: {{livre?.titre}}</h6>
   <h6 style="color: rgb(0, 0, 0); text-align: center;">Auteur: {{livre?.auteur}}</h6>
   <p style="color: rgb(0, 0, 0); text-align: center;">Catégorie: {{livre?.category.category}}</p>
 
-  <ion-item style="margin-top: 5%;">
+  <ion-item style="margin-top: 2%;">
     <audio class="player" controls autoplay style="margin-top: 5%; height: 30px;">
       <source src="{{audio}}">
     </audio>
   </ion-item>
+  <ion-grid>
+    <ion-label color="dark"> <small> Suggestion pour vous</small></ion-label>
+    <ion-row style="width: 100px;">
+      <ion-col>
+        <ion-slides>
+          <ion-slide *ngFor="let livre of moreLivre">
+            <ion-card  class="ion-card livreCard">
+              <img src="{{photo}}{{livre.idLivre}} " class="imgLivre">
+              <small  class="livrePrix" ><ion-badge *ngIf="livre.prix >0" mode="ios">{{livre.prix | currency:" ":true:"1.0"}} fcfa</ion-badge></small>
+              <small class="livrePrix" *ngIf="livre.prix ===0"><ion-badge mode="ios">Gratuit</ion-badge></small>
+             <br>
+              <div style="margin: auto;  background-color: #000;opacity: 0.8; width: 90%; ">
+            <span *ngIf="livre?.note >=1" >
+              <ion-icon name="star" class="rateIcon" ></ion-icon>
+            </span>
+            <span *ngIf="livre?.note >=2">
+              <ion-icon name="star" class="rateIcon"  ></ion-icon>
+            </span>
+            <span *ngIf="livre?.note >=3">
+              <ion-icon name="star" class="rateIcon" ></ion-icon>
+            </span>
+            <span *ngIf="livre?.note >=4">
+              <ion-icon name="star" class="rateIcon" ></ion-icon>
+            </span>
+            <span *ngIf="livre?.note >=5">
+              <ion-icon name="star" class="rateIcon" ></ion-icon>
+            </span>
+          </div>
+          </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

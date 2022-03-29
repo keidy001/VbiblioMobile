@@ -1,14 +1,19 @@
 <ion-toolbar color="primary">
-  <ion-buttons slot="secondary">
-      <ion-menu-button menu="main-menu"></ion-menu-button>
+  <ion-buttons slot="start">
+    <ion-menu-button menu="main-menu"></ion-menu-button>
   </ion-buttons>
-  <ion-buttons slot="primary">
-    <ion-button routerLink="/profile">
-      <ion-icon slot="icon-only" name="person-circle" ></ion-icon>
-    </ion-button>
+  <ion-title class="ion-text-center"> <small>{{livre?.titre}}</small> </ion-title>
+  <ion-buttons slot="end" style="margin-right:5%;" (click)="option($event)">
+    <ion-icon slot="icon-only"  name="download-outline" style="zoom: 0.8;">
+    </ion-icon>
   </ion-buttons>
-  <ion-title> V-Biblio</ion-title>
 </ion-toolbar>
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" >
+  <pdf-viewer [src]="pdfSrc"
+              [render-text]="false"
+              [original-size]="false"
+              [zoom]="1"
+              style="width: 100%; height: 500px"
 
+  ></pdf-viewer>
 </ion-content>

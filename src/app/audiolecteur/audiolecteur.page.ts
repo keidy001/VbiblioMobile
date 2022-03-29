@@ -13,18 +13,25 @@ export class AudiolecteurPage implements OnInit {
   livre: any;
   audio: any;
   img: any;
-
+  moreLivre: any;
+  photo: any;
   constructor(
-    public media: Media,
-    public platform: Platform,
-    public service: ServiceService,
-    public route: ActivatedRoute,
-    public modalCtrl: ModalController,
+
+        public    media:       Media,
+        public    platform:    Platform,
+        public    service:     ServiceService,
+        public    route:       ActivatedRoute,
+        public    modalCtrl:   ModalController,
+
     ) {
       }
 
   ngOnInit() {
-    this.read();
+
+        this.read();
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        this.photo = this.service.img;
+        this.getMore();
         this.modalCtrl.dismiss({
 
 
@@ -34,17 +41,20 @@ export class AudiolecteurPage implements OnInit {
 
   }
   read(){
-   this.audio = this.service.audiofile+'/'+this.route.snapshot.params.idLivre;
-   this.img = this.service.img+this.route.snapshot.params.idLivre;
-   this.service.livreById(this.route.snapshot.params.idLivre).subscribe((data)=>{
-     this.livre = data;
-     console.log(data);
-      console.log(this.livre);
+
+        this.audio = this.service.audiofile+'/'+this.route.snapshot.params.idLivre;
+
+        this.img = this.service.img+this.route.snapshot.params.idLivre;
+
+        this.service.livreById(this.route.snapshot.params.idLivre).subscribe((data)=>{
+        this.livre = data;
 
    });
-   this.modalCtrl.dismiss({
-
-  });
   }
 
+  getMore(){
+    this.service.livreByFormatNotDeleted('AudioBook', false).subscribe((data)=>{
+      this.moreLivre = data;
+    });
+  }
 }

@@ -12,6 +12,8 @@ export class ChoixPaymentPage implements OnInit {
 
   ngOnInit() {
     this.id = this.idLivre;
+    console.log( this.id);
+    
   }
 
 }

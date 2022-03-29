@@ -19,17 +19,23 @@ export class PaymentPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log();
+    
 
     this.getLivre();
     this.modalCtrl.dismiss({
-  })
+
+
+    });
+
 
 }
 getLivre(){
 
- this.servvice.livreById(this.route.snapshot.params.idLivre).subscribe((data)=>{
+ this.servvice.livreById(this.route.snapshot.params.id).subscribe((data)=>{
   this.livre =data;
+  
+   this.modalCtrl.dismiss({
+  })
  });
 }
 

@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-librairy.page.scss'],
 })
 export class DetailLibrairyPage implements OnInit {
-
+ slidesOptions = {
+    slidesPerView: 1.5
+  };
   constructor() { }
+
 
   ngOnInit() {
 

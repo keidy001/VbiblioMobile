@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { SocialSharing} from '@ionic-native/social-sharing/ngx';
+//import { SocialSharing} from '@ionic-native/social-sharing/ngx';
 import { environment } from '@env/environment';
 
 @Component({
@@ -20,7 +20,7 @@ export class SocialSharePage implements OnInit {
   sharingUrl = 'https://store.enappd.com';
   constructor(
     private modal: ModalController,
-    private socialSharing: SocialSharing,
+  //  private socialSharing: SocialSharing,
     ) { }
 
   ngOnInit() {}
@@ -29,25 +29,25 @@ export class SocialSharePage implements OnInit {
   }
   async shareVia(shareData) {
     if (shareData.shareType === 'viaEmail') {
-      this.shareViaEmail();
+      // this.shareViaEmail();
     } else {
-      this.socialSharing[`${shareData.shareType}`](this.sharingText, this.sharingImage, this.sharingUrl)
-      .then((res) => {
-        this.modal.dismiss();
-      })
-      .catch((e) => {
-        console.log('error', e);
-        this.modal.dismiss();
-      });
+      // this.socialSharing[`${shareData.shareType}`](this.sharingText, this.sharingImage, this.sharingUrl)
+      // .then((res) => {
+      //   this.modal.dismiss();
+      // })
+      // .catch((e) => {
+      //   console.log('error', e);
+      //   this.modal.dismiss();
+      // });
     }
   }
-  shareViaEmail() {
-    this.socialSharing.canShareViaEmail().then((res) => {
-      this.socialSharing.shareViaEmail(this.sharingText, this.emailSubject, this.recipent, null, null, this.sharingImage).then(() => {
-        this.modal.dismiss();
-      });
-    }).catch((e) => {
-      // Error!
-    });
-  }
+  // shareViaEmail() {
+  //   this.socialSharing.canShareViaEmail().then((res) => {
+  //     this.socialSharing.shareViaEmail(this.sharingText, this.emailSubject, this.recipent, null, null, this.sharingImage).then(() => {
+  //       this.modal.dismiss();
+  //     });
+  //   }).catch((e) => {
+  //     // Error!
+  //   });
+  // }
 }

@@ -14,7 +14,8 @@ import { LivrePage } from './livre.page';
     FormsModule,
     IonicModule,
     LivrePageRoutingModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    
   ],
   declarations: [LivrePage]
 })

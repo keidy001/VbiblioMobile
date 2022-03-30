@@ -24,11 +24,11 @@
   </ion-item>
   <ion-grid>
     <ion-label color="dark"> <small> Suggestion pour vous</small></ion-label>
-    <ion-row style="width: 100px;">
-      <ion-col>
-        <ion-slides>
+    <ion-row >
+      <ion-col size="12">
+        <ion-slides [options]="slideOptsTwo">
           <ion-slide *ngFor="let livre of moreLivre">
-            <ion-card  class="ion-card livreCard">
+            <ion-card  class="ion-card livreCard" (click)="detailLivre(livre.idLivre)">
               <img src="{{photo}}{{livre.idLivre}} " class="imgLivre">
               <small  class="livrePrix" ><ion-badge *ngIf="livre.prix >0" mode="ios">{{livre.prix | currency:" ":true:"1.0"}} fcfa</ion-badge></small>
               <small class="livrePrix" *ngIf="livre.prix ===0"><ion-badge mode="ios">Gratuit</ion-badge></small>

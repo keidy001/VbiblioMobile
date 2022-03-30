@@ -11,6 +11,7 @@ export class ServiceService {
   // livrefile='https://virtualbiblio.herokuapp.com/api/livre/livre';
   url='http://localhost:8080/api';
   img='http://localhost:8080/api/livre/photo/';
+  library='http://localhost:8080/api/librairy/images/';
   audiofile='http://localhost:8080/api/livre/audio';
   livrefile='http://localhost:8080/api/livre/livre';
   constructor(private http: HttpClient) { }

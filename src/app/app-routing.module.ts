@@ -78,7 +78,7 @@ const routes: Routes = [
     loadChildren: () => import('./profile-pop/profile-pop.module').then( m => m.ProfilePopPageModule)
   },
   {
-    path: 'detail-librairy',
+    path: 'detail-librairy/:id',
     loadChildren: () => import('./detail-librairy/detail-librairy.module').then( m => m.DetailLibrairyPageModule)
   },
   {
@@ -104,7 +104,8 @@ const routes: Routes = [
   {
     path: 'splash-screen',
     loadChildren: () => import('./splash-screen/splash-screen.module').then( m => m.SplashScreenPageModule)
-  },  {
+  },
+  {
     path: 'optionpop',
     loadChildren: () => import('./optionpop/optionpop.module').then( m => m.OptionpopPageModule)
   },

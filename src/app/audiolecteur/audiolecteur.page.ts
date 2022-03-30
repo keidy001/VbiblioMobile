@@ -3,13 +3,25 @@ import { Component, OnInit } from '@angular/core';
 import { Platform, ModalController } from '@ionic/angular';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { ServiceService } from '../service.service';
+import { DetailLivrePage } from '@app/detail-livre/detail-livre.page';
 @Component({
   selector: 'app-audiolecteur',
   templateUrl: './audiolecteur.page.html',
   styleUrls: ['./audiolecteur.page.scss'],
 })
 export class AudiolecteurPage implements OnInit {
+  slideOptsTwo = {
+    initialSlide: 1,
+    slidesPerView: 3,
+    spaceBetween: 2,
+    // speed:400,
+    //loop: true,
+    //centeredSlides: true,
+    // autoplay:{
+    //   delay:2000,
+    // }
 
+  };
   livre: any;
   audio: any;
   img: any;
@@ -22,6 +34,7 @@ export class AudiolecteurPage implements OnInit {
         public    service:     ServiceService,
         public    route:       ActivatedRoute,
         public    modalCtrl:   ModalController,
+      
 
     ) {
       }
@@ -56,5 +69,17 @@ export class AudiolecteurPage implements OnInit {
     this.service.livreByFormatNotDeleted('AudioBook', false).subscribe((data)=>{
       this.moreLivre = data;
     });
+  }
+
+  async detailLivre(idLivre: any ) {
+
+    const modal = await this.modalCtrl.create({
+      component: DetailLivrePage,
+      cssClass:'popoverCss',
+      componentProps: {
+        idLivre,
+      },
+    });
+    return modal.present();
   }
 }

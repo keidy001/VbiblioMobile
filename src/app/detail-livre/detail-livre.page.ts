@@ -1,12 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { AlertController, ModalController, PopoverController } from '@ionic/angular';
 import { ChoixPaymentPage } from '../choix-payment/choix-payment.page';
 import { LivrePage } from '../livre/livre.page';
 import { ServiceService } from '../service.service';
 import { SocialSharePage } from '../social-share/social-share.page';
 //import { SocialSharePage } from '../social-share/social-share.page';
-
+import { File } from '@ionic-native/file/ngx';
 @Component({
   selector: 'app-detail-livre',
   templateUrl: './detail-livre.page.html',
@@ -17,6 +18,7 @@ export class DetailLivrePage implements OnInit {
 
   livre: any;
   photo: any;
+  platform: any;
   constructor(
     private service: ServiceService,
     private route: ActivatedRoute,
@@ -24,7 +26,9 @@ export class DetailLivrePage implements OnInit {
     private router: Router,
     private livreTs: LivrePage,
     private popCtrl: PopoverController,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    private file: File, 
+    private transfer: FileTransfer
   ) { }
 
   ngOnInit() {
@@ -65,4 +69,22 @@ export class DetailLivrePage implements OnInit {
 
   rate(idLIvre: number){}
 
+
+  downloadAndOpenPdf() {
+
+    let path = null;
+
+    
+      path = this.file.dataDirectory;
+ 
+
+    const transfer = this.transfer.create();
+    transfer.download('https://devdactic.com/html/5-simple-hacks-LBT.pdf', path + 'myfile.pdf').then(entry => { 
+
+      let url = entry.toURL();
+     // this.document.viewDocument(url, 'application', {});
+    
+    });
+      
+  }
   }

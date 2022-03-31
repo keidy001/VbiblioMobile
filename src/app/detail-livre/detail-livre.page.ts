@@ -27,7 +27,7 @@ export class DetailLivrePage implements OnInit {
     private livreTs: LivrePage,
     private popCtrl: PopoverController,
     public modalCtrl: ModalController,
-    private file: File, 
+    private file: File,
     private transfer: FileTransfer
   ) { }
 
@@ -74,17 +74,17 @@ export class DetailLivrePage implements OnInit {
 
     let path = null;
 
-    
+
       path = this.file.dataDirectory;
- 
+
 
     const transfer = this.transfer.create();
-    transfer.download('https://devdactic.com/html/5-simple-hacks-LBT.pdf', path + 'myfile.pdf').then(entry => { 
+    transfer.download('https://devdactic.com/html/5-simple-hacks-LBT.pdf', path + 'myfile.pdf').then(entry => {
 
       let url = entry.toURL();
      // this.document.viewDocument(url, 'application', {});
-    
+
     });
-      
+
   }
   }

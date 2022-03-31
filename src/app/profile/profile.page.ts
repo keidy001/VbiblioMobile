@@ -1,6 +1,8 @@
 import { EditProfilePage } from './../edit-profile/edit-profile.page';
-import {  PopoverController } from '@ionic/angular';
+import { PopoverController, ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { EditUserPhotoPage } from '@app/edit-user-photo/edit-user-photo.page';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 @Component({
   selector: 'app-profile',
@@ -8,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  userData:any;
+  userData: any;
+  photo = 'https://i.pravatar.cc/150';
+  public imgfile: any = File;
   constructor(
-    private popoverCtrl:PopoverController
+    private popoverCtrl: PopoverController,
+    private modalctrl: ModalController,
   ) { }
 
   ngOnInit() {
@@ -21,11 +26,50 @@ export class ProfilePage implements OnInit {
  async edit(){
     const popover = await this.popoverCtrl.create({
       component: EditProfilePage,
-      
-    })
+
+    });
 
     return popover.present();
-    
+
   }
 
+  async updateImg() {
+
+    const modal = await this.modalctrl.create({
+      component: EditUserPhotoPage,
+      cssClass:'editprofile',
+      breakpoints: [1, 2, 3, 4],
+      initialBreakpoint: 0.2,
+      handle: true,
+
+    });
+    return modal.present();
+  }
+
+async openOptionSelection() {
+  const mod = await this.modalctrl.create({
+    component: EditUserPhotoPage,
+    cssClass: 'transparent-modal',
+  });
+  mod.onDidDismiss()
+  .then(res => {
+    console.log(res);
+    if (res.role !== 'backdrop') {
+      this.takePicture(res.data);
+    }
+  });
+  return await mod.present();
+}
+
+async takePicture(type) {
+  const image = await Camera.getPhoto({
+    quality: 90,
+    allowEditing: false,
+    resultType: CameraResultType.Uri,
+    source: CameraSource[type]
+  });
+  this.photo = image.webPath;
+  this.imgfile =image.base64String;
+  console.log(this.photo);
+}
 }

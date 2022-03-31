@@ -108,7 +108,11 @@ const routes: Routes = [
   {
     path: 'optionpop',
     loadChildren: () => import('./optionpop/optionpop.module').then( m => m.OptionpopPageModule)
+  },  {
+    path: 'edit-user-photo',
+    loadChildren: () => import('./edit-user-photo/edit-user-photo.module').then( m => m.EditUserPhotoPageModule)
   },
+
 
 
 

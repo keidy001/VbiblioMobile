@@ -5,7 +5,7 @@ import { AlertController, ModalController, PopoverController } from '@ionic/angu
 import { ChoixPaymentPage } from '../choix-payment/choix-payment.page';
 import { LivrePage } from '../livre/livre.page';
 import { ServiceService } from '../service.service';
-import { SocialSharePage } from '../social-share/social-share.page';
+// import { SocialSharePage } from '../social-share/social-share.page';
 //import { SocialSharePage } from '../social-share/social-share.page';
 import { File } from '@ionic-native/file/ngx';
 @Component({
@@ -59,12 +59,12 @@ export class DetailLivrePage implements OnInit {
 
   }
   async showShareOptions(id: any) {
-    const modal = await this.modalCtrl.create({
-      component: SocialSharePage,
-      cssClass: 'backTransparent',
-      backdropDismiss: true,
-    });
-    return modal.present();
+  //   const modal = await this.modalCtrl.create({
+  //     component: SocialSharePage,
+  //     cssClass: 'backTransparent',
+  //     backdropDismiss: true,
+  //   });
+  //   return modal.present();
   }
 
   rate(idLIvre: number){}

@@ -17,7 +17,7 @@
       <ion-col size="12">
         <ion-slides pager="false" >
           <ion-slide *ngFor="let s of slideImg">
-            <img src="../../assets/Images/{{s.img}}" style="height: 200px;">
+            <img src="../../assets/Images/{{s.img}}" style="height: 180px;">
             <div style="background-color: rgb(0, 0, 0); padding:5% ; opacity: 0.7;" class="slide-text"><span style="font-size: 12px;">{{s.text}}</span></div>
           </ion-slide>
         </ion-slides>
@@ -67,7 +67,7 @@
 
       <div *ngFor="let cat of category" style="margin-bottom: 3%;">
         <div class="cat">  {{cat.category}}</div>
-        <hr color="#6A9BFF" width="20%" style="margin-inline-start: 2%; height: 3px;">
+        <hr color="#6A9BFF" width="20%" style="margin-inline-start: 2%; height: 3px; margin-left: 4%;">
         <ion-slides  [options]="slideOptsTwo">
         <ion-slide *ngFor="let livre of listLivre |filter: cat.category |filter: filterTerm">
           <ion-card  class="ion-card livreCard" (click)="detailLivre(livre.idLivre)">

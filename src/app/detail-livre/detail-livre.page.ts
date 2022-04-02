@@ -8,6 +8,7 @@ import { ServiceService } from '../service.service';
 import { SocialSharePage } from '../social-share/social-share.page';
 //import { SocialSharePage } from '../social-share/social-share.page';
 import { File } from '@ionic-native/file/ngx';
+import  { saveAs } from 'file-saver';
 @Component({
   selector: 'app-detail-livre',
   templateUrl: './detail-livre.page.html',
@@ -86,5 +87,10 @@ export class DetailLivrePage implements OnInit {
 
     });
 
+  }
+
+  download(){
+    const blob = new Blob(['https://devdactic.com/html/5-simple-hacks-LBT.pdf'], {type: 'application/pdf'});
+    saveAs(blob, 'testData.pdf');
   }
   }

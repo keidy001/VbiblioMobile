@@ -70,7 +70,7 @@ export class DetailLivrePage implements OnInit {
   rate(idLIvre: number){}
 
 
-  downloadAndOpenPdf() {
+  downloadAndOpenPdf(idLivre: number) {
 
     let path = null;
 
@@ -79,7 +79,7 @@ export class DetailLivrePage implements OnInit {
 
 
     const transfer = this.transfer.create();
-    transfer.download('https://devdactic.com/html/5-simple-hacks-LBT.pdf', path + 'myfile.pdf').then(entry => {
+    transfer.download(this.service.livrefile+'/'+idLivre , path + 'myfile.pdf').then(entry => {
 
       let url = entry.toURL();
      // this.document.viewDocument(url, 'application', {});

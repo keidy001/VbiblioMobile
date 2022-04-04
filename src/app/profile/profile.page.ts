@@ -1,3 +1,4 @@
+import { ChangePassePage } from './../change-passe/change-passe.page';
 import { EditProfilePage } from './../edit-profile/edit-profile.page';
 import { PopoverController, ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
@@ -74,5 +75,14 @@ async takePicture(type) {
   this.photo = image.webPath;
   this.imgfile =image.base64String;
   console.log(this.photo);
+}
+async changePasse(){
+  const popover = await this.popoverCtrl.create({
+    component: ChangePassePage,
+
+  });
+
+  return popover.present();
+
 }
 }

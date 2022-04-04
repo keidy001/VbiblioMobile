@@ -16,7 +16,7 @@
     justify-items: end;
 }
 .userInfo{
-  margin: 20% 1%;
+  margin: 10% 1%;
 
   background-color: rgb(255, 255, 255);
   padding: 10%;
@@ -74,5 +74,15 @@ ion-content{
 
         font-size: 12px;
 
+    }
+
+    .changePasse{
+      margin: 10% 1%;
+
+      background-color: rgba(255,255,255,.8);
+      padding: 5%;
+      border-radius: 20px;
+      text-shadow: 30px;
+      font-size: 16px;
     }
   }

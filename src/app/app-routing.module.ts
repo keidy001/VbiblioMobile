@@ -112,6 +112,10 @@ const routes: Routes = [
     path: 'edit-user-photo',
     loadChildren: () => import('./edit-user-photo/edit-user-photo.module').then( m => m.EditUserPhotoPageModule)
   },
+  {
+    path: 'change-passe',
+    loadChildren: () => import('./change-passe/change-passe.module').then( m => m.ChangePassePageModule)
+  },
 
 
 

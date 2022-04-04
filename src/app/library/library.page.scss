@@ -4,7 +4,7 @@
   background-attachment: fixed;
   background-color: #f6f6f6;
   background-size:cover;
-   border: solid 1px;
+  
    margin: 1px;
     width: 100%;
    height: 150px;
@@ -12,15 +12,12 @@
    elevation : -45deg;
 
 }
-ion-content{
 
-  // overwrite inline styles
---offset-bottom: auto!important;
---overflow: hidden;
-overflow: auto;
-&::-webkit-scrollbar {
-display: none;
-}
+ion-content{
+  --background:rgb(188, 200, 255);
+
+
+
 }
 .slide-text{
 

@@ -82,7 +82,7 @@ getAllLibrairy(){
 }
 
 getLivreByLibrairy(id: any){
-  return this.http.get(this.url+'/livre/livreByLibrairy/'+id);
+  return this.http.get(this.url+'/livre/livreByLibrairy/'+id+'/0');
 }
 
 
@@ -99,5 +99,8 @@ getCategoryById(id: number){
 
 getLivreByCat(format: any, category: any, state: boolean){
   return this.http.get(this.url+'/livre/bycat/'+format+'/'+category+'/'+state);
+}
+getLibrairById(id:any){
+  return this.http.get(this.url+'/librairy/afficher/'+id)
 }
 }

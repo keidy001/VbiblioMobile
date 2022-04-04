@@ -13,7 +13,7 @@ export class SocialSharePage implements OnInit {
   public sharingList = environment.socialShareOption;
   loader: any = null;
   // eslint-disable-next-line max-len
-  sharingText = 'Acceder a des livres a partir de  ';
+  sharingText = 'Acceder a des livres a partir de virtual biblio  ';
   emailSubject = 'Download Apps';
   recipent = ['vbiblio@gmail.com'];
   sharingImage = ['/assets/Images/Virtual_biblio2.png'];

@@ -20,11 +20,11 @@ export const environment = {
         logo: 'assets/icon/twitter.png',
         shareType: 'shareViaTwitter'
     },
-    {
-        title: 'Linkedin',
-        logo: 'assets/icon/linkedin.png',
-        shareType: 'shareViaLinkedin'
-    },
+    // {
+    //     title: 'Linkedin',
+    //     logo: 'assets/icon/linkedin.png',
+    //     shareType: 'shareViaLinkedin'
+    // },
     {
         title: 'Email',
         logo: 'assets/icon/gmail.png',

@@ -64,7 +64,7 @@ livreById(id: number){
 //Methode for update user information
 
 updateUser(id: any, data: any){
-  this.http.put(this.url+'/utilisateur/modifier'+id, data, {responseType:'text'});
+ return  this.http.put(this.url+'/utilisateur/modifier/'+id, data, {responseType:'text'});
 }
 
 // Methode for get User by his id
@@ -100,7 +100,7 @@ getCategoryById(id: number){
 getLivreByCat(format: any, category: any, state: boolean){
   return this.http.get(this.url+'/livre/bycat/'+format+'/'+category+'/'+state);
 }
-getLibrairById(id:any){
-  return this.http.get(this.url+'/librairy/afficher/'+id)
+getLibrairById(id: any){
+  return this.http.get(this.url+'/librairy/afficher/'+id);
 }
 }

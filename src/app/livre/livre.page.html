@@ -72,10 +72,9 @@
         <ion-slide *ngFor="let livre of listLivre |filter: cat.category |filter: filterTerm">
           <ion-card  class="ion-card livreCard" (click)="detailLivre(livre.idLivre)">
             <img src="{{photo}}{{livre.idLivre}} " class="imgLivre">
-            <small  class="livrePrix" ><ion-badge *ngIf="livre.prix >0" mode="ios">{{livre.prix | currency:" ":true:"1.0"}} fcfa</ion-badge></small>
-            <small class="livrePrix" *ngIf="livre.prix ===0"><ion-badge mode="ios">Gratuit</ion-badge></small>
+
            <br>
-            <div style="margin: auto; margin-top: 100%; background-color: #000;opacity: 0.8; width: 90%; ">
+            <!-- <div style="margin: auto; margin-top: 100%; background-color: #000;opacity: 0.8; width: 90%; "> -->
           <span *ngIf="livre?.note >=1" >
             <ion-icon name="star" class="rateIcon" ></ion-icon>
           </span>
@@ -91,10 +90,12 @@
           <span *ngIf="livre?.note >=5">
             <ion-icon name="star" class="rateIcon" ></ion-icon>
           </span>
-        </div>
+        <!-- </div> -->
+        <small  class="livrePrix" ><ion-badge *ngIf="livre.prix >0" mode="ios">{{livre.prix | currency:" ":true:"1.0"}} fcfa</ion-badge></small>
+            <small class="livrePrix" *ngIf="livre.prix ===0"><ion-badge mode="ios">Gratuit</ion-badge></small>
         </ion-card>
         </ion-slide>
       </ion-slides>
-      <div style="color: #000000; float:right;  margin-right: 3%;" routerLink="/listlivre/{{format}}/{{cat.idCategory}}"><small >Voir plus</small></div>
+      <div *ngIf="listLivre?.length > 0" style="color: #000000; float:right;  margin-right: 3%;" routerLink="/listlivre/{{format}}/{{cat.idCategory}}"><small >Voir plus</small></div>
     </div>
 </ion-content>

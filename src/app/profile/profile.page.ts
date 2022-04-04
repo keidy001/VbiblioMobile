@@ -11,7 +11,9 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 })
 export class ProfilePage implements OnInit {
   userData: any;
-  photo = 'https://i.pravatar.cc/150';
+  photo :any;
+
+
   public imgfile: any = File;
   constructor(
     private popoverCtrl: PopoverController,
@@ -19,7 +21,7 @@ export class ProfilePage implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    console.log(this.photo);
     this.userData =JSON.parse(localStorage['isLogin']);
   }
 
@@ -43,6 +45,7 @@ export class ProfilePage implements OnInit {
       handle: true,
 
     });
+   this.photo = localStorage.setItem('photo',this.photo);
     return modal.present();
   }
 

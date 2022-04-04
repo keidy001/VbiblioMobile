@@ -60,3 +60,19 @@
   width: 30px;
   color: white;
 }
+ion-content{
+  background-color: rgb(188, 200, 255);
+        // overwrite inline styles
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .profil{
+
+        font-size: 12px;
+
+    }
+  }

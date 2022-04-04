@@ -7,13 +7,26 @@ import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 export class ServiceService {
   // url='https://virtualbiblio.herokuapp.com/api';
   // img='https://virtualbiblio.herokuapp.com/api/livre/photo/';
+  // library='https://virtualbiblio.herokuapp.com/api/librairy/images/';
   // audiofile='https://virtualbiblio.herokuapp.com/api/livre/audio';
   // livrefile='https://virtualbiblio.herokuapp.com/api/livre/livre';
+
+
   url='http://localhost:8080/api';
   img='http://localhost:8080/api/livre/photo/';
-  library='http://localhost:8080/api/librairy/images/';
+  library='http://localhost:8080/api/librairy/photo/';
   audiofile='http://localhost:8080/api/livre/audio';
   livrefile='http://localhost:8080/api/livre/livre';
+
+
+  // url='7fa5-197-155-141-9.ngrok.io/api';
+  // img='7fa5-197-155-141-9.ngrok.io/api/livre/photo/';
+  // library='7fa5-197-155-141-9.ngrok.io/api/librairy/images/';
+  // audiofile='7fa5-197-155-141-9.ngrok.io/api/livre/audio';
+  // livrefile='7fa5-197-155-141-9.ngrok.io/api/livre/livre';
+
+
+
   constructor(private http: HttpClient) { }
 
 //Methode for add user
@@ -69,7 +82,7 @@ getAllLibrairy(){
 }
 
 getLivreByLibrairy(id: any){
-  return this.http.get(this.url+'/livre/livreByLibrairy/'+id);
+  return this.http.get(this.url+'/livre/livreByLibrairy/'+id+'/0');
 }
 
 
@@ -86,5 +99,8 @@ getCategoryById(id: number){
 
 getLivreByCat(format: any, category: any, state: boolean){
   return this.http.get(this.url+'/livre/bycat/'+format+'/'+category+'/'+state);
+}
+getLibrairById(id:any){
+  return this.http.get(this.url+'/librairy/afficher/'+id)
 }
 }

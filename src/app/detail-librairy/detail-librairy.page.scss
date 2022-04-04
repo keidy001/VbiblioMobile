@@ -1,39 +1,25 @@
-ion-header {
 
-  ion-toolbar, ion-item {
-    --background: #f1f5f8;
-    background: #f1f5f8;
-    padding: 0 10px;
+.libInfo {
+  background: #f1f5f8;
+  padding: 4px 10px 20px 10px;
+  border-radius: 0 0 28px 28px;
+  color: #000000;
+  img{
+    height: 100px;
   }
-
-  ion-toolbar {
-    .bordered {
-      --border-radius: 10px;
-      --box-shadow: 5px 5px 10px #d1d1d1, -5px -5px 10px #FFFFFF;
-    }
-  }
-
-  ion-item {
-    h3 {
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    p {
-      font-weight: 500;
-      font-size: 14px;
-    }
-
-    ion-avatar {
-      --border-radius: 40%;
-    }
-  }
-
 }
-
+.head{
+  background-color: rgb(188, 200, 255);
+}
 ion-content {
-  --background: linear-gradient(90deg, rgba(43,90,148,1) 0%, rgba(45,112,229,1) 35%, rgba(45,112,229,1) 100%);
-
+  background-color: rgb(188, 200, 255);
+      // overwrite inline styles
+      --offset-bottom: auto!important;
+      --overflow: hidden;
+      overflow: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
   .slides {
     background: #f1f5f8;
     padding: 4px 10px 20px 10px;
@@ -59,7 +45,7 @@ ion-content {
       justify-content: center;
 
       img {
-        width: 30px;
+        width: 40px;
       }
 
 
@@ -73,7 +59,7 @@ ion-content {
   }
 
   .container {
-    padding: 6px 20px;
+    padding: 6px 10px;
     color: #FFFFFF;
 
     ion-item {
@@ -81,7 +67,7 @@ ion-content {
       padding: 0;
       margin: 14px 0;
       --border-radius: 14px;
-      color: #FFFFFF;
+      color: #000000;
       font-weight: 600;
 
       ion-label {
@@ -92,7 +78,7 @@ ion-content {
           font-size: 16px;
         }
         h6 {
-          color: rgba(255,255,255,.66);
+          color: rgba(59, 59, 59, 0.66);
         }
       }
 

@@ -1,29 +1,21 @@
-<ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-button routerLink="/home">
-        <ion-icon slot="start" name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  <ion-title class="ion-text-center"> Virtual-Biblio</ion-title>
-  <ion-buttons slot="end">
-    <ion-button >
-      <ion-icon slot="start" ></ion-icon>
-    </ion-button>
-  </ion-buttons>
-</ion-toolbar>
-
-<ion-content class="ion-padding" >
-
-<div class="avatarDiv">
-  <ion-avatar class="avatar" style="height: 100%; width: 50%;">
-    <img src="../../assets/icon/user.png">
-    <button large style="margin:-40px  0 0 50%; " >
-    <ion-icon  name="camera-outline" style="zoom:2.0;"></ion-icon>
-    </button>
-  </ion-avatar>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Profile
+    </ion-title>
+   </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container">
+    <div class="outer"
+      [ngStyle]="{'background-image': 'url(' + photo + ')'}" >
+        <div class="inner" (click)="openOptionSelection()" >
+           <ion-icon name="camera" class="camera-icon"></ion-icon>
+        </div>
+     </div>
+  </div>
 
 
-</div>
 <span> <ion-icon name="create-outline" style="zoom:1.5; float:right;" (click)="edit()"></ion-icon></span>
 <div class="userInfo" style="background-color: rgb(64, 138, 235); color: white;">
      

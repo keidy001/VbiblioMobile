@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { DocumentViewer, DocumentViewerOptions } from '@awesome-cordova-plugins/document-viewer/ngx';
 import { NavController, ModalController, PopoverController } from '@ionic/angular';
 import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
-
+import  { saveAs } from 'file-saver';
 @Component({
   selector: 'app-ebookvue',
   templateUrl: './ebookvue.page.html',
@@ -23,6 +23,21 @@ public pageLabel!: string;
   idLivre: number;
   livre: any;
   pdfSrc: any;
+  renderText = true;
+  originalSize = false;
+  fitToPage = false;
+  showAll = true;
+  autoresize = false;
+  showBorders = true;
+  renderTextModes = [0, 1, 2];
+  renderTextMode = 1;
+  rotation = 0;
+  zoom = 1;
+  zoomScale = 'page-width';
+  zoomScales = ['page-width', 'page-fit', 'page-height'];
+  pdfQuery = '';
+  totalPages!: number;
+
 
   constructor(
 
@@ -74,5 +89,21 @@ async option(tr: any) {
   });
   return pop.present();
 }
-
+download(){
+  const blob = new Blob([this.pdfSrc], {type: 'application/pdf'});
+  saveAs(blob, 'testData.pdf');
+}
+zoomIn() {
+  this.zoom += 0.05;
+}
+zoomOut() {
+  if (this.zoom > 0.05){
+    this.zoom -= 0.05;
+}}
+zoomD(){
+  this.zoom = 1;
+}
+rotateDoc() {
+  this.rotation += 90;
+}
 }

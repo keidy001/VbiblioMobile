@@ -38,7 +38,12 @@ text-transform: initial;
 border-radius: 50px;
 }
 
-
+.transparent-modal .modal-wrapper {
+  --background: rgba(44, 39, 45, 0.7);
+}
+*:focus{
+  outline:none;
+}
 
 
 

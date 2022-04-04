@@ -1,3 +1,4 @@
+import { PopoverController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 
@@ -8,26 +9,28 @@ import { ServiceService } from '../service.service';
 })
 export class EditProfilePage implements OnInit {
 
-  nom :string;
-  prenom:string;
-  email:string;
-  telephone:number;
-  login:string;
+
   userData: any;
   constructor(
     private userService :ServiceService,
+    private popover : PopoverController,
   ) { }
 
   ngOnInit() {
     this.userData = JSON.parse(localStorage['isLogin'])
   }
 
-  getUser
+
 
   update(){
+
     console.log(this.userData);
-    console.log(this.userData.idUtilisateur);
-    
-    this.userService.updateUser(this.userData.idUtilisateur, this.userData)
+    this.userService.updateUser(this.userData.idUtilisateur, this.userData).subscribe((data)=>{
+        localStorage.setItem('isLogin',data);
+        this.popover.dismiss();
+    });
+  }
+  cancel(){
+    this.popover.dismiss();
   }
 }

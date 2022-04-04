@@ -1,10 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Profile
-    </ion-title>
-   </ion-toolbar>
-</ion-header>
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-menu-button menu="main-menu"></ion-menu-button>
+  </ion-buttons>
+  <ion-title class="ion-text-center"> Virtual-Biblio</ion-title>
+  <ion-buttons slot="end" style="margin-right:5%;" routerLink="/profile">
+    <ion-icon slot="icon-only" ></ion-icon>
+  </ion-buttons>
+</ion-toolbar>
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="container">
     <div class="outer"
@@ -16,15 +18,23 @@
   </div>
 
 
-<span> <ion-icon name="create-outline" style="zoom:1.5; float:right;" (click)="edit()"></ion-icon></span>
-<div class="userInfo" style="background-color: rgb(64, 138, 235); color: white;">
-     
-     <p > <ion-label><b > Email :</b></ion-label> {{userData.email}}</p>
-     <p > <ion-label><b > Téléphone :</b></ion-label> {{userData.telephone}}</p>
+<div class="userInfo" style="background-color: rgba(255,255,255,.8); color: rgb(0, 0, 0);">
+  <span> <ion-icon name="create-outline" style="zoom:1.5; float:right;" (click)="edit()"></ion-icon></span>
+
+  <ion-grid>
+    <ion-row class="profil">
+      <ion-col size="12">
+        <ion-label><b > Nom : </b>{{userData.nom}}</ion-label>
+      </ion-col>
+      <ion-col size="12">
+        <ion-label><b > Prénom :</b></ion-label> {{userData.prenom}}
+      </ion-col>
+      <ion-col size="12">
+        <ion-label><b > Email :</b></ion-label> {{userData.email}}
+      </ion-col>
+      <ion-col><ion-label><b > Téléphone :</b></ion-label> {{userData.telephone}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
     </div>
-
-
-
-
-
 </ion-content>

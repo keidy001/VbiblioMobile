@@ -15,9 +15,9 @@ export class DetailLibrairyPage implements OnInit {
   };
   id: number;
   livre: any;
-  librairy:any;
-  image:any;
-  lib:any;
+  librairy: any;
+  image: any;
+  lib: any;
   constructor(
     private route: ActivatedRoute,
     private service: ServiceService,
@@ -26,11 +26,11 @@ export class DetailLibrairyPage implements OnInit {
 
 
   ngOnInit() {
-    this.lib = this.service.library
+    this.lib = this.service.library;
     this.image = this.service.img;
     this.service.getLibrairById(this.id = this.route.snapshot.params.id).subscribe((data)=>{
       this.librairy = data;
-    })
+    });
     this.getLIvreByLibrairy(this.route.snapshot.params.id);
   }
 

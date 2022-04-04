@@ -103,4 +103,7 @@ getLivreByCat(format: any, category: any, state: boolean){
 getLibrairById(id: any){
   return this.http.get(this.url+'/librairy/afficher/'+id);
 }
+changePass(id: any, data: any){
+  return this.http.put(this.url+'/utilisateur/changePass/'+id, data);
+}
 }

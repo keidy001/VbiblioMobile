@@ -15,8 +15,9 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 //import { FileOpener} from '@ionic-native/file-opener/ngx';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AwesomeCordovaNativePlugin } from '@awesome-cordova-plugins/core';
+import { ChangePassePipe } from './change-passe.pipe';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ChangePassePipe],
   entryComponents: [],
   imports: [BrowserModule,
     IonicModule.forRoot(),

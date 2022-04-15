@@ -21,7 +21,7 @@ export class DocumentsPage implements OnInit {
 
   ngOnInit() {
     //this.segment.value = "";
-    this.data =this.service.livreByFormat('Article');
+   // this.data =this.service.livreByFormat('Article');
     this.service.livreByFormat('Article').subscribe((data)=>{
       this.articles = data;
     });

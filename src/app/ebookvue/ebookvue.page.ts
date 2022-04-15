@@ -91,7 +91,7 @@ async option(tr: any) {
 }
 download(){
   const blob = new Blob([this.pdfSrc], {type: 'application/pdf'});
-  saveAs(blob, 'testData.pdf');
+  saveAs(this.pdfSrc, 'testData.pdf');
 }
 zoomIn() {
   this.zoom += 0.05;

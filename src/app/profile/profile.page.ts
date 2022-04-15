@@ -12,7 +12,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 })
 export class ProfilePage implements OnInit {
   userData: any;
-  photo :any;
+  photo ='/assets/icon/user.png';
 
 
   public imgfile: any = File;
@@ -46,7 +46,7 @@ export class ProfilePage implements OnInit {
       handle: true,
 
     });
-   this.photo = localStorage.setItem('photo',this.photo);
+  // this.photo = localStorage.setItem('photo',this.photo);
     return modal.present();
   }
 
